@@ -4,6 +4,9 @@ import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
 import com.jsyn.unitgen.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class SoundGeneratorB {
 	
 	// Graph components.
@@ -15,23 +18,125 @@ public class SoundGeneratorB {
 	}
 
 	private void start() {
-
 		synth = JSyn.createSynthesizer();					// Initialization of JSyn API
 
 		synth.add(lineOut = new LineOut());					// Create line out and add it to the graph.
 		synth.start();
 
-		// TODO Task 2.
+		//taskA();
+		//taskB();
+		taskC();
+
+		synth.stop();										// Turn off JSyn engine
+	}
+
+	private void taskA(){
+		double frequency = 2570;
+		double amplitude = 0.95;
+		double duration = 3;
+
+		SineOscillator sineOsc = new SineOscillator();
+		synth.add(sineOsc);
+
+		sineOsc.output.connect( 0, lineOut.input, 0 );   // connect to left channel
+		sineOsc.output.connect( 0, lineOut.input, 1 );   // connect to right channel
+
+		sineOsc.frequency.set(frequency);
+		sineOsc.amplitude.set(amplitude);
 
 		lineOut.start();									// Start the data flow in graph.
 
-		// Play signal for 2 seconds.
+		// Play signal for a certain number of seconds.
 		try {
-			synth.sleepFor(2);
+			synth.sleepFor(duration);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		synth.stop();										// Turn off JSyn engine
+		synth.stop();
+	}
+
+	private void taskB(){
+		double frequency1 = 3231;
+		double amplitude1 = 0.81;
+		double frequency2 = 2746;
+		double amplitude2 = 0.32;
+		double duration = 5;
+
+		synth.start();
+
+		// Sine signal 1
+		SineOscillator sineOsc1 = new SineOscillator();
+		synth.add(sineOsc1);
+
+		sineOsc1.frequency.set(frequency1);
+		sineOsc1.amplitude.set(amplitude1);
+
+		// Sine signal 2
+		SineOscillator sineOsc2 = new SineOscillator();
+		synth.add(sineOsc2);
+
+		sineOsc2.frequency.set(frequency2);
+		sineOsc2.amplitude.set(amplitude2);
+
+		sineOsc1.output.connect( 0, lineOut.input, 0 );   // connect to left channel
+		//sineOsc1.output.connect( 0, lineOut.input, 1 );   // connect to right channel
+
+		//sineOsc2.output.connect( 0, lineOut.input, 0 );   // connect to left channel
+		sineOsc2.output.connect( 0, lineOut.input, 1 );   // connect to right channel
+
+		lineOut.start();									// Start the data flow in graph.
+
+		// Play signal for a certain number of seconds.
+		try {
+			synth.sleepFor(duration);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		synth.stop();
+	}
+
+	private void taskC(){
+		double frequency = 351;
+		double amplitude = 0.72;
+		double sampleRate = 17683;
+		double duration = 5;
+		//double[] amplitudes = new double[8];
+		//double amplitudes = [0.6, 0.76, 0.7, 0.56, 0.81, 0.77, 0.69, 0.94];
+		List<Double> amplitudes = Arrays.asList(0.6, 0.76, 0.7, 0.56, 0.81, 0.77, 0.69, 0.94);
+
+		synth.start();
+
+		PassThrough passThrough = new PassThrough();
+		synth.add(passThrough);
+
+		// Sine signal 1
+		SineOscillator sineOsc = new SineOscillator();
+		synth.add(sineOsc);
+		sineOsc.frequency.set(frequency);
+		sineOsc.amplitude.set(amplitude);
+
+		//passThrough.input.connect(sineOsc.output);
+		sineOsc.output.connect(passThrough.input);
+		//lineOut
+
+
+		passThrough.output.connect( 0, lineOut.input, 0 );   // connect to left channel
+		passThrough.output.connect( 0, lineOut.input, 1 );   // connect to right channel
+
+
+
+
+
+		passThrough.start();									// Start the data flow in graph.
+
+		// Play signal for a certain number of seconds.
+		try {
+			synth.sleepFor(duration);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
