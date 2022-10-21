@@ -2,6 +2,7 @@ package cbsp;
 
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
+import com.jsyn.devices.AudioDeviceManager;
 import com.jsyn.unitgen.*;
 
 import java.util.Arrays;
@@ -100,36 +101,37 @@ public class SoundGeneratorB {
 	private void taskC(){
 		double frequency = 351;
 		double amplitude = 0.72;
-		double sampleRate = 17683;
+		int sampleRate = 17683;
 		double duration = 5;
-		//double[] amplitudes = new double[8];
-		//double amplitudes = [0.6, 0.76, 0.7, 0.56, 0.81, 0.77, 0.69, 0.94];
 		List<Double> amplitudes = Arrays.asList(0.6, 0.76, 0.7, 0.56, 0.81, 0.77, 0.69, 0.94);
 
-		synth.start();
+		synth.start(sampleRate);
 
 		PassThrough passThrough = new PassThrough();
 		synth.add(passThrough);
 
-		// Sine signal 1
+		// Base Sine signal
 		SineOscillator sineOsc = new SineOscillator();
 		synth.add(sineOsc);
 		sineOsc.frequency.set(frequency);
 		sineOsc.amplitude.set(amplitude);
 
-		//passThrough.input.connect(sineOsc.output);
 		sineOsc.output.connect(passThrough.input);
-		//lineOut
 
+		// Harmonics
+		for (int i = 0; i < amplitudes.size(); i++){
+			SineOscillator harmonicOsc = new SineOscillator();
+			synth.add(harmonicOsc);
+			harmonicOsc.frequency.set(frequency);
+			harmonicOsc.amplitude.set(amplitudes.get(i));
+			harmonicOsc.output.connect(passThrough.input);
+		}
 
 		passThrough.output.connect( 0, lineOut.input, 0 );   // connect to left channel
 		passThrough.output.connect( 0, lineOut.input, 1 );   // connect to right channel
 
-
-
-
-
-		passThrough.start();									// Start the data flow in graph.
+		// Start the data flow in graph.
+		lineOut.start();
 
 		// Play signal for a certain number of seconds.
 		try {

@@ -4,6 +4,8 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.SourceDataLine;
+import java.util.Arrays;
+import java.util.List;
 
 public class SoundGeneratorA {
 
@@ -92,22 +94,29 @@ public class SoundGeneratorA {
 
             byte[] buf = new byte[sampleRate * seconds];                            // sampleRate * seconds = signal length
 
+            List<Double> amplitudes = Arrays.asList(0.74, 0.71, 0.83, 0.44, 0.35, 0.63, 0.45, 0.32);
+
+            // Base signal
             double frequency = 263;
             double amplitude = 62;
-            for (int i = 0; i < buf.length; i++) {
-                double time = (double) i / sampleRate;
-                double sine = amplitude * Math.sin(2 * Math.PI * frequency * time);
-                double harmonic1 = 0.74 * sine;
-                double harmonic2 = 0.71 * sine;
-                double harmonic3 = 0.83 * sine;
-                double harmonic4 = 0.44 * sine;
-                double harmonic5 = 0.35 * sine;
-                double harmonic6 = 0.63 * sine;
-                double harmonic7 = 0.45 * sine;
-                double harmonic8 = 0.32 * sine;
 
-                float numberOfSignals = 9;
-                buf[i] = (byte) ((sine+harmonic1+harmonic2+harmonic3+harmonic4+harmonic5+harmonic6+harmonic7+harmonic8)/numberOfSignals);
+            double maxAmplitude = 127;
+
+            for (int i = 0; i < buf.length; i++) {
+                double harmonic;
+                double sumOfSignals = 0.0;
+
+                double time = (double) i / sampleRate;
+                double sine = amplitude * Math.sin(2 * Math.PI * frequency * time); // Base signal
+                sumOfSignals += sine;
+
+                for (Double aDouble : amplitudes) {
+                    harmonic = aDouble * maxAmplitude * Math.sin(2 * Math.PI * frequency * time);
+                    sumOfSignals += harmonic;
+                }
+
+                float numberOfSignals = 1 + amplitudes.size();
+                buf[i] = (byte) (sumOfSignals/numberOfSignals); //Dividing by the number of signals to avoid clipping
             }
 
             source.write(buf, 0, buf.length);                                    // Write buffer to the SourceDataLine.
@@ -134,24 +143,29 @@ public class SoundGeneratorA {
 
             byte[] buf = new byte[sampleRate * seconds];                            // sampleRate * seconds = signal length
 
+            List<Double> amplitudes = Arrays.asList(0.59, 0.97, 0.94, 0.77, 0.49, 0.89, 0.87, 0.96, 0.4, 0.77);
+
+            // Base signal
             double frequency = 369;
             double amplitude = 83;
-            for (int i = 0; i < buf.length; i++) {
-                double time = (double) i / sampleRate;
-                double sine = amplitude * Math.cos(2 * Math.PI * frequency * time);
-                double harmonic1 = 0.59 * sine;
-                double harmonic2 = 0.97 * sine;
-                double harmonic3 = 0.94 * sine;
-                double harmonic4 = 0.77 * sine;
-                double harmonic5 = 0.49 * sine;
-                double harmonic6 = 0.89 * sine;
-                double harmonic7 = 0.87 * sine;
-                double harmonic8 = 0.96 * sine;
-                double harmonic9 = 0.4 * sine;
-                double harmonic10 = 0.77 * sine;
 
-                float numberOfSignals = 11;
-                buf[i] = (byte) ((sine+harmonic1+harmonic2+harmonic3+harmonic4+harmonic5+harmonic6+harmonic7+harmonic8+harmonic9+harmonic10)/numberOfSignals);
+            double maxAmplitude = 127;
+
+            for (int i = 0; i < buf.length; i++) {
+                double harmonic;
+                double sumOfSignals = 0.0;
+
+                double time = (double) i / sampleRate;
+                double cos = amplitude * Math.cos(2 * Math.PI * frequency * time); // Base signal
+                sumOfSignals += cos;
+
+                for (Double aDouble : amplitudes) {
+                    harmonic = aDouble * maxAmplitude * Math.cos(2 * Math.PI * frequency * time);
+                    sumOfSignals += harmonic;
+                }
+
+                float numberOfSignals = 1 + amplitudes.size();
+                buf[i] = (byte) (sumOfSignals/numberOfSignals); //Dividing by the number of signals to avoid clipping
             }
 
             source.write(buf, 0, buf.length);                                    // Write buffer to the SourceDataLine.
