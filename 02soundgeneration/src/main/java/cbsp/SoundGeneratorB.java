@@ -24,8 +24,8 @@ public class SoundGeneratorB {
 		synth.add(lineOut = new LineOut());					// Create line out and add it to the graph.
 		synth.start();
 
-		//taskA();
-		//taskB();
+		taskA();
+		taskB();
 		taskC();
 
 		synth.stop();										// Turn off JSyn engine
@@ -81,9 +81,6 @@ public class SoundGeneratorB {
 		sineOsc2.amplitude.set(amplitude2);
 
 		sineOsc1.output.connect( 0, lineOut.input, 0 );   // connect to left channel
-		//sineOsc1.output.connect( 0, lineOut.input, 1 );   // connect to right channel
-
-		//sineOsc2.output.connect( 0, lineOut.input, 0 );   // connect to left channel
 		sineOsc2.output.connect( 0, lineOut.input, 1 );   // connect to right channel
 
 		lineOut.start();									// Start the data flow in graph.
@@ -103,6 +100,7 @@ public class SoundGeneratorB {
 		double amplitude = 0.72;
 		int sampleRate = 17683;
 		double duration = 5;
+
 		List<Double> amplitudes = Arrays.asList(0.6, 0.76, 0.7, 0.56, 0.81, 0.77, 0.69, 0.94);
 
 		synth.start(sampleRate);
@@ -114,7 +112,7 @@ public class SoundGeneratorB {
 		SineOscillator sineOsc = new SineOscillator();
 		synth.add(sineOsc);
 		sineOsc.frequency.set(frequency);
-		sineOsc.amplitude.set(amplitude);
+		sineOsc.amplitude.set(amplitude/(amplitudes.size()+1)); //Dividing by the number of signals to avoid clipping
 
 		sineOsc.output.connect(passThrough.input);
 
@@ -123,7 +121,7 @@ public class SoundGeneratorB {
 			SineOscillator harmonicOsc = new SineOscillator();
 			synth.add(harmonicOsc);
 			harmonicOsc.frequency.set(frequency);
-			harmonicOsc.amplitude.set(amplitudes.get(i));
+			harmonicOsc.amplitude.set(amplitudes.get(i)/(amplitudes.size()+1)); //Dividing by the number of signals to avoid clipping
 			harmonicOsc.output.connect(passThrough.input);
 		}
 
