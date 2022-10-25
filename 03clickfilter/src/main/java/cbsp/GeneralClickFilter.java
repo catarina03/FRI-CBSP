@@ -18,20 +18,24 @@ public class GeneralClickFilter extends ClickFilterBase {
 		// TODO General click filter.
 		int large_window = 1000;
 		int small_window = 20;
-
-		//ignore the first 1000-(small window+1)
-		for (int i = 0; i < (samples.length-large_window+1); i++) { //To fix
-			float asv_large = average_of_squared_values(Arrays.copyOfRange(samples, i, large_window-1));
-			float asv_small = average_of_squared_values(Arrays.copyOfRange(samples, i+(large_window-small_window+1), large_window-1));
-		}
-
-
-
 		float threshold = 0.226f; //use sigma from the std deviation ?
 
-		for (int i = 1; i<samples.length;i++){
-			if (Math.abs((samples[i-1]) - samples[i]) > threshold) {
-				samples[i] = 0.0f; //linear interpolation instead
+		//ignore the first 1000-(small window+1)
+		for (int i = 0; i < (samples.length-large_window); i++) { //To fix
+			int large_sample_subset_end = i+large_window-1;
+			int small_sample_subset_beg = i+large_window-small_window;
+
+			float asv_large = average_of_squared_values(Arrays.copyOfRange(samples, i, large_sample_subset_end));
+			float asv_small = average_of_squared_values(Arrays.copyOfRange(samples, small_sample_subset_beg, large_sample_subset_end));
+
+			if (asv_small > asv_large + threshold) {
+				// linear interpolation
+				float base = samples[i+(large_window-small_window)];
+				float interval = (samples[i+large_window-1] - samples[i+(large_window-small_window)])/small_window;
+
+				for (int j = 0; j < small_window; j++){
+					samples[i+(large_window-small_window)+j] = base+j*interval;
+				}
 			}
 		}
 	}
@@ -42,8 +46,7 @@ public class GeneralClickFilter extends ClickFilterBase {
 		for(int i = 0; i < sample_window.length; i++) {
 			sum += Math.pow(sample_window[i], 2);
 		}
-		float result = sum/sample_window.length;
 
-		return result;
+		return sum/sample_window.length;
 	}
 }
