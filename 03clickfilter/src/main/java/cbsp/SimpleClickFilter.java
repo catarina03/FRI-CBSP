@@ -19,7 +19,7 @@ public class SimpleClickFilter extends ClickFilterBase {
 		// Simple click filter.
 		float standard_deviation = standard_deviation(samples);
 		for (int i = 1; i<samples.length;i++){
-			if (Math.abs((samples[i-1]) - samples[i]) > standard_deviation) {
+			if (Math.abs((samples[i-1]) - samples[i]) > standard_deviation) { //Standard dev or threshold difined by us?
 				samples[i] = 0.0f;
 			}
 		}
@@ -27,13 +27,8 @@ public class SimpleClickFilter extends ClickFilterBase {
 
 	protected float standard_deviation(float[] array) {
 		float mean = mean(array);
-		System.out.println("Mean: " + mean);
-
 		float variance = variance(array, mean);
-		System.out.println("Variance: " + variance);
-
 		double deviation = Math.sqrt(variance);
-		System.out.println("Standard deviation: " + deviation);
 
 		return (float) deviation;
 	}

@@ -18,10 +18,10 @@ public class GeneralClickFilter extends ClickFilterBase {
 		// TODO General click filter.
 		int large_window = 1000;
 		int small_window = 20;
-		float threshold = 0.226f; //use sigma from the std deviation ?
+		float threshold = 0.226f;
 
 		//ignore the first 1000-(small window+1)
-		for (int i = 0; i < (samples.length-large_window); i++) { //To fix
+		for (int i = 0; i < (samples.length-large_window); i++) {
 			int large_sample_subset_end = i+large_window-1;
 			int small_sample_subset_beg = i+large_window-small_window;
 
