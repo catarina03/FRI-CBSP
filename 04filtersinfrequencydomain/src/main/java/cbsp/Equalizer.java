@@ -8,6 +8,7 @@ public class Equalizer extends FiltersBase {
 		sleep = 0.2;
 		
 		// TODO Task 3.
+		// Use filter picking boxes and connect them together
 		
 		// TODO Create our filters here, don't forget to set the output port for Task 3.
 	}

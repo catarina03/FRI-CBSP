@@ -7,6 +7,7 @@ public class NotchFilter extends FiltersBase {
 		sleep = 0.2;
 		
 		// TODO Task 2.
+		// Use starting code from click filter hw
 		
 		// TODO Uncomment output code for Task 2.
 
