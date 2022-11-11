@@ -12,7 +12,7 @@ public class GenerateParameters {
     public static void main (String[] args) {
 
         /* Insert your student ID here: */
-        int studentID = 11111111;
+        int studentID = 70088634;
 
         if (args.length == 1) {
             try {
