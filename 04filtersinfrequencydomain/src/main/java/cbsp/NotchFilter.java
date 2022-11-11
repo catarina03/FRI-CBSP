@@ -32,8 +32,8 @@ public class NotchFilter extends FiltersBase {
 
 			// Perform processing
 			synth.add(filter_bs = new FilterBandStop());
-			filter_bs.frequency.set(450);
-			filter_bs.Q.set(1);
+			filter_bs.frequency.set(440);
+			filter_bs.Q.set(0.6);
 
 			// Play the (possibly) fixed samples
 			player = new VariableRateMonoReader();
