@@ -41,8 +41,9 @@ public abstract class FiltersBase {
 		}
 
 		// TODO Uncomment lineOut code for Task1
-		
-      boolean play = true;
+
+
+      	boolean play = true;
 		if (play)
 		output.connect(lineOut.input);
 
@@ -51,6 +52,7 @@ public abstract class FiltersBase {
 
 		if (play)
 		synth.startUnit(lineOut);
+
 		
 		do {
 			try {

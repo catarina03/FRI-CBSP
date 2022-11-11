@@ -43,6 +43,7 @@ public class SimpleFilters extends FiltersBase {
 		taskB(ps);
 		taskC(ps);
 		taskD(ps);
+		
 	}
 
 	protected void taskA(PassThrough ps) {
