@@ -1,0 +1,1951 @@
+2009-12-23 16:39  daniel309
+
+	* jvst_wrapper/pom.xml, jvst_wrapper/dist/pom.xml,
+	  jvst_wrapper/dist/release_win.sh, jvst_system/pom.xml,
+	  jvst_examples/pom.xml,
+	  jvst_native/src/src/conf/jVSTwRapper_win.ini,
+	  jvst_native/src/src/conf/jvstwrapper_linux.ini,
+	  jvst_native/src/src/conf/libjvstwrapper.jnilib.ini,
+	  jvst_native/src/src/jVSTwRapperMAIN.cpp: preparing for the
+	  1.0beta release
+
+2009-12-23 14:04  daniel309
+
+	* jvst_wrapper/dist/pom.xml: preparing for the 1.0beta release
+
+2009-12-23 13:57  daniel309
+
+	* jvst_native/.cvsignore, jvst_examples/pom.xml,
+	  jvst_wrapper/pom.xml, jvst_system/pom.xml: preparing for the
+	  1.0beta release
+
+2009-11-13 15:45  daniel309
+
+	* jvst_native/src/Readme_linux.txt: small reorg of the linux readme
+
+2009-09-19 20:15  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV24ToPlug.cpp: fixed
+	  "no tone" bug introduced in the commit before...
+
+2009-09-19 19:13  daniel309
+
+	* jvst_native/src/src/public.sdk/vst2.x/audioeffect.cpp: fix VST
+	  Unit Test Testcase --> may add some stability with buggy host
+	  apps
+
+2009-09-19 00:27  daniel309
+
+	* jvst_native/src/src/: public.sdk/vst2.x/audioeffect.cpp,
+	  VSTV20ToPlug.cpp: small tweak to follow vst sdk compliance
+
+2009-09-18 17:25  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, jVSTwRapperMAIN.cpp,
+	  VSTV24ToPlug.cpp: fixed bug(s) found by christians "VST Unit
+	  Test" Tool (good stuff btw)
+
+2009-09-17 23:31  daniel309
+
+	* jvst_examples/: jVSTeXamples.jardesc,
+	  src/jvst/examples/liquinth/ADSREnvelope.java,
+	  src/jvst/examples/liquinth/AudioSelector.java,
+	  src/jvst/examples/liquinth/AudioSource.java,
+	  src/jvst/examples/liquinth/Controls.java,
+	  src/jvst/examples/liquinth/Keyboard.java,
+	  src/jvst/examples/liquinth/Liquinth.java,
+	  src/jvst/examples/liquinth/LiquinthJS.java,
+	  src/jvst/examples/liquinth/LiquinthVST.java,
+	  src/jvst/examples/liquinth/LiquinthVSTGUI.java,
+	  src/jvst/examples/liquinth/LogoPanel.java,
+	  src/jvst/examples/liquinth/MidiReceiver.java,
+	  src/jvst/examples/liquinth/MidiSelector.java,
+	  src/jvst/examples/liquinth/MoogFilter.java,
+	  src/jvst/examples/liquinth/Oscillator.java,
+	  src/jvst/examples/liquinth/Player.java,
+	  src/jvst/examples/liquinth/README.txt,
+	  src/jvst/examples/liquinth/READ_ME.txt,
+	  src/jvst/examples/liquinth/Synthesizer.java,
+	  src/jvst/examples/liquinth/SynthesizerPanel.java,
+	  src/jvst/examples/liquinth/VirtualKeyboard.java,
+	  src/jvst/examples/liquinth/Voice.java: new version of the
+	  liquinth example VST instrument (version a36) courtesy of Martin
+	  (thank you!)
+
+2009-09-17 13:23  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: use JVST_PATH_MAX
+
+2009-06-23 18:26  daniel309
+
+	* jvst_native/src/src/JNIUtils.cpp: show message when max number of
+	  error msgs is reached
+
+2009-06-04 11:35  daniel309
+
+	* jvst_native/src/Readme_linux.txt: fixed typo in command line
+
+2009-05-21 18:24  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java: allow to
+	  modify logging behyvior on runtime
+
+2009-04-29 23:03  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: first
+	  hide, then destroy window
+
+2009-04-12 15:29  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/: VSTPluginAdapter.java,
+	  communication/VSTV10ToHost.java: refactored: generic jvst stuff
+	  (logging, initialization) is now in VSTPluginAdapter instead of
+	  VSTV10ToHost, makes much more sense now...
+
+2009-03-22 11:42  daniel309
+
+	* jvst_native/src/src/VSTV20ToHost.cpp: more robust: #ifndef min
+	  instead of #ifdef lnux
+
+2009-03-22 04:14  daniel309
+
+	* jvst_native/src/Readme_linux.txt: troubleshooting
+
+2009-03-22 03:56  daniel309
+
+	* jvst_native/src/Readme_linux.txt: more info on PATH
+
+2009-03-22 03:29  daniel309
+
+	* jvst_native/src/src/VSTV20ToHost.cpp: fix for linux
+
+2009-03-21 11:54  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: destroy()
+	  is now ignored on the java side for the MAC --> consistent window
+	  close() behavior across all platforms
+
+2009-03-12 20:52  daniel309
+
+	* jvst_native/src/src/: JNIUtils.cpp, VSTV10ToPlug.cpp,
+	  VSTV20ToHost.cpp, VSTV20ToPlug.cpp, VSTV21ToPlug.cpp,
+	  VSTV23ToPlug.cpp, jVSTwRapperMAIN.cpp: defensive string handling
+	  --> always subtract 1 from kVstMax* constants
+
+2009-03-12 11:29  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: fix for buffer overrun
+	  introduced with the static code check fixes
+
+2009-03-12 02:00  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: feature: do not close java
+	  window when native plug window closes --> RE-ENABLED for all
+	  platforms, except MAC, see src comments for details
+
+2009-03-12 01:47  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: feature: do not close java
+	  window when native plug window closes --> DEACTIVATED FOR NOW
+
+2009-03-12 01:46  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: feature: do not close java
+	  window when native plug window closes
+
+2009-03-12 01:43  daniel309
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, VSTV20ToPlug.cpp,
+	  jVSTwRapperMAIN.cpp: fixed buffer overrides introduced by last
+	  commit
+
+2009-02-12 00:27  daniel309
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, JNIUtils.cpp,
+	  VSTV21ToPlug.cpp, jVSTwRapperMAIN.cpp,
+	  ladspa/jLADSPAwRapperMAIN.cpp: small fixes suggested by the
+	  static code validation feature of VisualStudio 2010
+
+2009-02-07 13:32  daniel309
+
+	* jvst_native/src/src/VSTV20ToHost.cpp: documented remaining string
+	  operations --> string handling should be fixed now in the entire
+	  lib, no more stupid string handling mistakes (hopefully...)
+
+2009-02-05 18:38  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: never commit before
+	  compiling --> fixed my own build error...
+
+2009-02-05 18:23  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: another fix for bad string
+	  handling...
+
+2009-02-05 14:12  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV20ToPlug.cpp,
+	  VSTV21ToPlug.cpp, VSTV23ToPlug.cpp, jVSTwRapperMAIN.cpp: now
+	  handle strings correctly (there were some real bad errors!)
+
+2009-02-05 14:11  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/: JayDLay.java,
+	  JayDLayGUI.java: preparation for javafx stuff
+
+2008-12-18 22:34  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: GUI main
+	  methods (debug) now work again
+
+2008-12-17 21:45  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: cleaned up window
+	  embedding code on windows, fixed the lost focus problem, thanks
+	  august for the WM_POPUP tip!
+
+2008-12-17 17:51  daniel309
+
+	* jvst_examples/src/jvst/examples/liquinth/LiquinthVSTGUI.java:
+	  quick fix for npe on mac osx
+
+2008-12-15 10:30  daniel309
+
+	* jvst_native/src/: src/jVSTwRapperMAIN.cpp, jVSTwRapper.vcproj,
+	  jVSTwRapper.vcproj.AFFENBERG.martindl.user: use jdk1.6.0_11 to
+	  compile print current date/time as second line of the output
+	  (thanks kilon!)
+
+2008-12-14 15:09  daniel309
+
+	* jvst_native/src/src/VSTV20ToHost.cpp: added sanity array bounds
+	  check to sendVSTEventsToHost()
+
+2008-12-05 18:32  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/JayDLay.java: fixed race
+	  that might occur on osx
+
+2008-12-03 22:57  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: added #ifdef for linux gui
+	  update stuff in valueChanged()
+
+2008-12-03 13:21  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: fixed: linux VSTGUI
+	  updates window on click now correctly --> thanks lucio!
+
+2008-11-19 21:33  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: removed XInitThreads() -->
+	  causes major problems with Qtractor. Now, VST GUIs work with all
+	  hosts (Jost, eXT2, Renoise, Qtractor)
+
+2008-11-17 00:27  daniel309
+
+	* jvst_native/src/src/ladspa/jLADSPAwRapperMAIN.cpp: swing guis now
+	  available even when the ladspa check failed for the vsti
+
+2008-11-16 13:20  daniel309
+
+	* jvst_native/src/src/ladspa/jLADSPAwRapperMAIN.cpp: lasdpa fix for
+	  qtractor
+
+2008-11-11 19:48  daniel309
+
+	* jvst_native/src/Readme_linux.txt: small fixes
+
+2008-10-03 01:35  daniel309
+
+	* jvst_examples/pom.xml, jvst_system/pom.xml, jvst_wrapper/pom.xml,
+	  jvst_wrapper/dist/pom.xml, jvst_wrapper/dist/release_win.sh:
+	  updated poms, mvn deploy works again with web.sf.net
+
+2008-10-02 16:51  daniel309
+
+	* jvst_wrapper/dist/release_linux.sh,
+	  jvst_native/src/src/VSTGUIWrapper.cpp,
+	  jvst_native/src/src/background.xpm,
+	  jvst_native/src/src/conf/jvstwrapper_linux.ini: linux gui
+	  embedding fix (works with Renoise and Jost now)
+
+2008-10-02 16:43  daniel309
+
+	* jvst_examples/dist/: linux/JayDLay.ini,
+	  osx/libjvstwrapper.jnilib.ini, win/JayDLay.ini: cleanup of .ini
+	  files
+
+2008-09-28 15:23  daniel309
+
+	* jvst_wrapper/dist/: release_osx.sh, release.sh: every platform
+	  has its own release sh now
+
+2008-09-28 14:55  daniel309
+
+	* jvst_examples/dist/vstplugin_osx.xml: leave file and dir
+	  permissions as they are...
+
+2008-09-28 14:16  daniel309
+
+	* jvst_wrapper/dist/release_win.sh: separate .sh files for each
+	  platform now
+
+2008-09-28 14:11  daniel309
+
+	* jvst_system/.cvsignore, jvst_examples/dist/pom.xml,
+	  jvst_examples/dist/vstplugin_linux.xml,
+	  jvst_examples/dist/vstplugin_osx.xml,
+	  jvst_examples/dist/linux/HOW_TO.txt,
+	  jvst_examples/dist/linux/JayDLay.ini, jvst_examples/.cvsignore,
+	  jvst_examples/dist/osx/HOW_TO.txt,
+	  jvst_examples/dist/osx/libjvstwrapper.jnilib.ini,
+	  jvst_examples/dist/win/HOW_TO.txt,
+	  jvst_examples/dist/win/JayDLay.ini, jvst_native/.cvsignore,
+	  jvst_wrapper/.cvsignore, jvst_wrapper/dist/pom.xml: fixed maven
+	  assembly stuff for version 0.9g
+
+2008-09-22 23:51  daniel309
+
+	* jvst_native/src/src/vstgui_linux/vstgui.cpp: added missing #ifdef
+
+2008-09-22 08:54  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV24ToPlug.cpp: dont
+	  allocate arrays that have already been allocated... thanks goes
+	  to martin r. for suggesting this fix
+
+2008-09-21 22:40  daniel309
+
+	* jvst_native/src/: src/bmp00128.bmp, Readme_mac.txt: new logo (new
+	  slogan :))
+
+2008-09-21 01:29  daniel309
+
+	* jvst_native/src/src/VSTV20ToHost.cpp: found 2 more refs that
+	  should be global!
+
+2008-09-20 15:59  daniel309
+
+	* jvst_native/src/src/conf/: jVSTwRapper_win.ini,
+	  jvstwrapper_linux.ini, libjvstwrapper.jnilib.ini: jvm option
+	  cleanup
+
+2008-09-20 15:51  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: fixed bug in vstguiwrapper
+	  I introduced with last commit
+
+2008-09-20 15:41  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTV10ToPlug.cpp,
+	  VSTV20ToPlug.cpp, VSTV24ToPlug.cpp: defined a few more refs that
+	  should be global --> reported by -Xcheck:jni
+
+2008-09-20 14:26  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, jVSTwRapperMAIN.cpp,
+	  VSTV24ToPlug.cpp: - added global refs for shared arrays in
+	  processing functions - print version on startup
+
+2008-09-19 22:58  daniel309
+
+	* jvst_native/src/Readme_mac.txt: small text fixes
+
+2008-09-14 17:22  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV24ToPlug.cpp: added
+	  #ifdef 0 instead of comments to the old version of
+	  process/processReplacing code. Makes it easier to switch between
+	  both versions of the code. Despite heavy testing, the new version
+	  might have some glitches...
+
+2008-09-14 11:42  daniel309
+
+	* jvst_examples/dist/pom.xml, jvst_native/src/Readme_mac.txt: added
+	  better au wrapping documentation, fixed jvstwrapper version in
+	  jvstexamples deployment pom
+
+2008-09-11 18:18  daniel309
+
+	* jvst_native/src/src/VSTV10ToHost.cpp: removed setParamAutomated
+	  log entry --> too verbose
+
+2008-09-10 21:22  daniel309
+
+	* jvst_native/src/src/VSTV24ToPlug.h: forgot #ifdef, thanks martin
+
+2008-09-08 09:02  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTGUIWrapper.h,
+	  VSTV24ToPlug.cpp, VSTV24ToPlug.h, vstgui_linux/vstgui.cpp: linux
+	  vstgui works now
+
+2008-09-07 15:32  daniel309
+
+	* jvst_native/src/: src/button.bmp, src/jVSTwRapper.rc,
+	  jVSTwRapper.vcproj, src/background.bmp: removed unecessary files
+	  (background.bmp and button.bmp)
+
+2008-08-17 12:15  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: fixed (and maybe re-enabled
+	  a bug in energyXT) setParameterAutomated --> need to test soon
+
+2008-08-17 12:13  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/JayDLayGUI.java: call
+	  setParameterAutomated (so that gui param changes can be recorded
+	  by the host)
+
+2008-08-16 11:59  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/JayDLay.java: update gui
+	  when param changes
+
+2008-08-16 11:52  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, background.xpm,
+	  button.xpm, jVSTwRapperMAIN.cpp: linux vstgui progress (still
+	  doesnt work though)
+
+2008-08-14 00:58  daniel309
+
+	* jvst_native/src/: AUTHORS.txt, Readme_mac.txt,
+	  src/VSTGUIWrapper.cpp: preparation for release 0.9g
+
+2008-08-12 20:48  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: Fixed AU bug in melodyne,
+	  VST and AU work now WITH GUI :)
+
+2008-08-11 01:49  daniel309
+
+	* jvst_native/src/: VSTAU.patch,
+	  jvstwrapper.xcodeproj/project.pbxproj, src/VSTGUIWrapper.cpp,
+	  src/VSTGUIWrapper.h, src/bmp00128.bmp, src/bmp00129.bmp: added
+	  VSTAU patch, VSTGUI part (native GUI to show/hide java plugin
+	  window) compiles and works now
+
+2008-08-10 14:14  daniel309
+
+	* jvst_native/: makefile, src/src/VSTGUIWrapper.cpp,
+	  src/src/VSTGUIWrapper.h, src/src/background.xpm,
+	  src/src/button.xpm, src/src/conf/jVSTwRapper_win.ini,
+	  src/src/conf/jvstwrapper_linux.ini,
+	  src/src/vstgui_linux/vstgui.cpp,
+	  src/src/vstgui_linux/vstcontrols.cpp,
+	  src/src/vstgui_linux/vstcontrols.h,
+	  src/src/vstgui_linux/vstgui.h, src/src/vstgui_linux/vstkeycode.h:
+	  vstgui linux compiles, but doesnt quite work yet
+
+2008-08-08 18:58  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp,
+	  conf/jVSTwRapper_win.ini: removed CloseNativePluginWindow from
+	  .ini / small fix of VSTGUI stuff in GUIWrapper
+
+2008-08-07 21:57  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, button.bmp, button.pdn,
+	  VSTGUIWrapper.h, background.bmp, background.pdn, jVSTwRapper.rc:
+	  added simple VSTGUI that allows to show/hide the java gui when
+	  AttachToNativeWindow=0 in the .ini
+
+2008-08-05 00:09  daniel309
+
+	* jvst_wrapper/dist/: release.sh, release_osx.xml: osx maven
+	  release works now
+
+2008-08-04 23:36  daniel309
+
+	* jvst_wrapper/dist/pom.xml: added jvstwrapper maven repo so that
+	  dependencies can be resolved (napkinlaf)
+
+2008-07-01 18:00  daniel309
+
+	* jvst_wrapper/dist/release.sh: added css and jpg
+
+2008-07-01 17:58  daniel309
+
+	* jvst_wrapper/: pom.xml, dist/pom.xml, dist/release.sh,
+	  dist/release_linux.xml, dist/release_osx.xml,
+	  dist/release_win.xml, dist/cvs2cl.pl: mavenized jvstwrapper
+	  release
+
+2008-07-01 17:57  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/gui/RotaryKnob.java: added link to
+	  original source
+
+2008-07-01 17:54  daniel309
+
+	* jvst_examples/pom.xml,
+	  jvst_native/src/src/conf/jVSTwRapper_win.ini,
+	  jvst_native/src/src/conf/jvstwrapper_linux.ini,
+	  jvst_native/src/src/conf/libjvstwrapper.jnilib.ini,
+	  jvst_native/src/src/conf/jVSTwRapper.ini, jvst_system/pom.xml:
+	  mavenized jvstwrapper release
+
+2008-06-28 14:34  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTGUIWrapper.h: linux
+	  gui reparent experiments
+
+2008-06-27 00:51  daniel309
+
+	* jvst_examples/dist/pom.xml: added jvstwrapper repo for easier
+	  build (no manual install of jars into local repo)
+
+2008-06-25 08:33  daniel309
+
+	* jvst_examples/dist/: linux/HOW_TO.txt, osx/HOW_TO.txt,
+	  win/HOW_TO.txt: minor text changes
+
+2008-06-25 08:18  daniel309
+
+	* jvst_examples/: dist/pom.xml, dist/vstplugin_win.xml,
+	  dist/vstplugin_linux.xml, dist/vstplugin_osx.xml,
+	  dist/linux/HOW_TO.txt, dist/linux/HOWTO.txt, vstplugin_osx.xml,
+	  vstplugin_win.xml, vstplugin_linux.xml, pom.xml,
+	  dist/win/HOWTO.txt, dist/win/HOW_TO.txt, dist/osx/HOW_TO.txt,
+	  dist/osx/HOWTO.txt: moved mvn files to dist directory
+
+2008-06-24 20:37  daniel309
+
+	* jvst_examples/: vstplugin_osx.xml, vstplugin_win.xml, pom.xml,
+	  vstplugin_linux.xml, dist/win/HOWTO.txt, dist/win/JayDLay.ini,
+	  dist/osx/Info.plist, dist/osx/libjvstwrapper.jnilib.ini,
+	  dist/linux/HOWTO.txt, dist/linux/JayDLay.ini, dist/osx/HOWTO.txt:
+	  mavenized: added example pom.xml that creates 3 versions of
+	  JayDLay.zip ready to be run under linux/windows/mac osx
+
+2008-06-22 15:30  daniel309
+
+	* jvst_native/src/src/VSTV24ToPlug.cpp: fixed
+	  processDoubleReplacing
+
+2008-06-22 13:16  daniel309
+
+	* jvst_native/makefile: added -Wall again since gcc4.2 warnings are
+	  fixed now
+
+2008-06-22 13:16  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: use memset instead of
+	  memcpy in processreplacing (setting output array to 0.0f all the
+	  time) --> fixes hanging notes on linux with the new array reuse
+	  stuff to prevent gc
+
+2008-06-22 12:37  daniel309
+
+	* jvst_native/src/src/: JNIUtils.cpp, JNIUtils.h: fixed gcc 4.2
+	  warnings
+
+2008-06-20 20:00  daniel309
+
+	* jvst_native/src/: AUTHORS.txt, Readme_mac.txt: updated authors,
+	  added seth and a reference to the vst-au wrapper
+
+2008-06-15 15:27  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp,
+	  conf/jvstwrapper_linux.ini: added gui handling comments for linux
+
+2008-06-14 15:40  daniel309
+
+	* jvst_native/src/src/conf/: jVSTwRapper.ini,
+	  jvstwrapper_linux.ini, libjvstwrapper.jnilib.ini: added
+	  LiquinthVST
+
+2008-06-14 15:39  daniel309
+
+	* jvst_examples/jVSTeXamples.jardesc: include LiquinthVST in the
+	  examples jar
+
+2008-06-14 15:36  daniel309
+
+	* jvst_examples/src/jvst/examples/liquinth/README.txt: line removed
+
+2008-06-07 17:32  daniel309
+
+	* jvst_native/makefile: removed -Wall
+
+2008-06-07 17:31  daniel309
+
+	* jvst_native/src/Readme_linux.txt: more info on VST host on linux
+
+2008-06-07 17:31  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: do not
+	  center the window any more, GUI embedding code does not seems to
+	  like this!
+
+2008-06-07 17:26  daniel309
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, JNIUtils.h,
+	  VSTV10ToPlug.cpp, VSTV20ToHost.cpp, jVSTwRapperMAIN.cpp,
+	  JNIUtils.cpp: larger strings and strNcpy to avoid problems with
+	  large CLASSPATH (see forum for bug report)
+
+2008-06-07 13:52  daniel309
+
+	* jvst_native/src/src/VSTV10ToHost.cpp: print unique id as hex to
+	  log file
+
+2008-06-07 13:50  daniel309
+
+	* jvst_examples/src/jvst/examples/: jayvstxsynth/JayVSTxSynth.java,
+	  jaydlay/JayDLay.java, dreinulldrei/DreiNullDrei.java: use
+	  meaningful unique ids
+
+2008-06-07 13:19  daniel309
+
+	* jvst_examples/src/jvst/examples/: dreinulldrei/DreiNullDrei.java,
+	  jaydlay/JayDLay.java, jayvstxsynth/JayVSTxSynth.java: removed
+	  stupid long manufacturer name
+
+2008-06-01 22:36  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: linux doesnt seem to like
+	  the gc optimization in process(), disable it here. doesnt do very
+	  much gc on linux anyways...
+
+2008-06-01 19:31  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: window embedding finally
+	  works reliable on ubuntu 8.04 LTS --> release this!
+
+2008-05-10 00:08  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV20ToPlug.cpp: fixed
+	  hanging note problem that was introduced by the GC fix
+
+2008-05-06 23:31  daniel309
+
+	* jvst_native/src/src/conf/libjvstwrapper.jnilib.ini: gui on the
+	  mac works now...
+
+2008-05-05 23:21  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/JayDLay.java: ironed out
+	  little bug that causes a npe on some occasions in jaydlay
+
+2008-05-04 14:00  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: forgot an #ifdef -- now
+	  builds again on all three platforms (win/linux/mac)
+
+2008-05-04 02:09  daniel309
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV10ToPlug.h,
+	  VSTV20ToPlug.cpp, VSTV24ToPlug.cpp, VSTV24ToPlug.h: added gc fix,
+	  suggested by Normen Hansen. Significantly reduces gc activity,
+	  especially on Mac OSX
+
+2008-05-03 20:24  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java,
+	  jvst_wrapper/src/jvst/wrapper/gui/VSTPluginGUIRunner.java,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java,
+	  jvst_examples/src/jvst/examples/jaydlay/JayDLayGUI.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java,
+	  jvst_examples/src/jvst/examples/liquinth/LiquinthVSTGUI.java,
+	  jvst_native/src/AUTHORS.txt, jvst_native/src/src/JNIUtils.cpp,
+	  jvst_native/src/src/VSTGUIWrapper.cpp,
+	  jvst_native/src/src/VSTGUIWrapperMAC.h,
+	  jvst_native/src/src/VSTGUIWrapperMAC.mm,
+	  jvst_native/src/src/VSTV10ToPlug.cpp,
+	  jvst_native/src/src/VSTV10ToPlug.h,
+	  jvst_native/src/src/VSTV20ToPlug.cpp,
+	  jvst_native/src/src/VSTV20ToPlug.h,
+	  jvst_native/src/src/VSTV24ToPlug.cpp,
+	  jvst_native/src/src/VSTV24ToPlug.h,
+	  jvst_native/src/src/jVSTwRapperMAIN.cpp: merged changes from the
+	  Mac version back to windows/linux. ALL GUI calls are now made by
+	  invokeLater/invokeAndWait as specified by SUN in the Swing
+	  guides...  Also, some cleanup work was done
+
+2008-04-13 22:23  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp,
+	  jvst_native/src/src/VSTGUIWrapper.h,
+	  jvst_native/src/src/VSTGUIWrapperMAC.h,
+	  jvst_native/src/src/VSTGUIWrapperMAC.mm,
+	  jvst_native/src/src/jVSTwRapperMAIN.cpp,
+	  jvst_wrapper/src/jvst/wrapper/gui/VSTPluginGUIRunner.java,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java,
+	  jvst_wrapper/src/jvst/wrapper/gui/VSTPluginGUI.java: Changes for
+	  the new GUI handling that finally allows stable Java GUIs on the
+	  Mac.	NOTE: doesnt compile on windows/linux yet. This and some
+	  cleanup will follow with the next commit
+
+	  THANKS: goes to Normen Hansen for the hints to finally get the
+	  GUI running and the  many test runs he conducted
+
+2008-04-13 22:18  daniel309
+
+	* jvst_examples/src/jvst/examples/:
+	  dreinulldrei/DreiNullDreiGUI.java,
+	  dreinulldrei/DreiNullDreiNapkinGUI.java, jaydlay/JayDLay.java,
+	  jaydlay/JayDLayGUI.java, jaydlay/JayDLayNapkinGUI.java,
+	  jayvstxsynth/JayVSTxSynthGUI.java,
+	  jayvstxsynth/JayVSTxSynthNapkinGUI.java,
+	  liquinth/LiquinthVSTGUI.java: Changes for the new GUI handling
+	  that finally allows stable Java GUIs on the Mac.  NOTE: doesnt
+	  compile on windows/linux yet. This and some cleanup will follow
+	  with the next commit
+
+	  THANKS: goes to Normen Hansen for the hints to finally get the
+	  GUI running and the  many test runs he conducted
+
+2008-03-30 23:53  daniel309
+
+	* jvst_native/src/src/: JNIUtils.h, VSTGUIWrapper.cpp,
+	  VSTV10ToPlug.h, VSTV20ToPlug.h, VSTV21ToPlug.cpp,
+	  VSTV23ToPlug.cpp, JNIUtils.cpp, VSTGUIWrapper.h,
+	  VSTV10ToPlug.cpp, VSTV20ToPlug.cpp, VSTV24ToPlug.cpp,
+	  VSTV24ToPlug.h: fix suggested by Tim Hoffman: solve threading
+	  issue on cubase 4 (mac osx 10.5) but this is a generic solution
+	  to solve threading issues once and for all, valid for all
+	  platforms. tested and checked in.  --> thanks very much Tim!
+
+2007-09-29 14:13  daniel309
+
+	* jvst_native/src/Readme_mac.txt: require MAC OSX >= 10.4.8 and
+	  java 1.5.0_07 to use java GUIs (swing)
+
+2007-09-29 00:25  daniel309
+
+	* jvst_native/src/src/conf/jvstwrapper_linux.ini: changed default
+	  value of AttachToNativeWindow to 0
+
+2007-09-28 23:49  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: [no log message]
+
+2007-09-28 23:48  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTGUIWrapper.h: cleanup
+	  of gui wrapper code minor enhancements for linux gui wrapping
+	  code (jost works fine, energyXT2 still causes problems -->
+	  deactivated for now)
+
+2007-09-28 23:43  daniel309
+
+	* jvst_native/src/Readme_linux.txt: updated readme
+
+2007-07-23 23:07  daniel309
+
+	* jvst_examples/src/jvst/examples/liquinth/: LiquinthVST.java,
+	  LiquinthVSTGUI.java, README.txt: fixes - see readme.txt -->
+	  updated to version a30
+
+2007-07-16 00:33  daniel309
+
+	* jvst_examples/src/jvst/examples/liquinth/: LiquinthVST.java,
+	  LiquinthVSTGUI.java, liquinth.png: added version a29 of liquinth
+	  vst
+
+2007-07-11 20:57  daniel309
+
+	* jvst_examples/src/jvst/examples/liquinth/: ADSREnvelope.java,
+	  Envelope.java, LFO.java, LiquinthVST.java, Maths.java,
+	  MoogFilter.java, Oscillator.java, Synthesizer.java, Voice.java:
+	  added new demo synth (polyphonic)
+
+2007-07-11 20:56  daniel309
+
+	* jvst_native/src/src/conf/: jVSTwRapper.ini,
+	  jvstwrapper_linux.ini, libjvstwrapper.jnilib.ini: added config
+	  values for new demo effects/synths: DDelay and Liquinth a28
+
+2007-07-08 21:51  daniel309
+
+	* jvst_native/src/src/: jVSTwRapperMAIN.cpp, JNIUtils.cpp: new
+	  config value: CustomJVMRegistryKey
+
+2007-07-07 19:39  daniel309
+
+	* jvst_native/: .settings/org.eclipse.cdt.core.prefs,
+	  src/src/ConfigFileReader.cpp, src/src/ConfigFileReader.h,
+	  src/src/JNIUtils.cpp, src/src/JNIUtils.h,
+	  src/src/jVSTwRapperMAIN.cpp, src/src/conf/jVSTwRapper.ini: new
+	  config value: CustomJVMRegistryKey
+
+2007-06-17 23:32  daniel309
+
+	* jvst_native/: .cdtproject, makefile, src/Readme_linux.txt,
+	  src/src/VSTGUIWrapper.cpp, src/src/VSTGUIWrapper.h,
+	  src/src/conf/jVSTwRapper.ini, src/src/conf/jvstwrapper_linux.ini,
+	  src/src/conf/libjvstwrapper.jnilib.ini: linux gui embeding (works
+	  with jost, but still needs work for energyXT2)
+
+2007-06-10 23:28  daniel309
+
+	* jvst_native/src/src/: jVSTwRapperMAIN.cpp,
+	  ladspa/jLADSPAwRapperMAIN.cpp: dont load GUI classes when using
+	  ladspa --> useless there!
+
+2007-05-30 22:22  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: added
+	  TODO
+
+2007-05-27 19:57  joxe
+
+	* jvst_examples/src/jvst/examples/ddelay/DDelay.java: Initial
+	  version of DDelay delay unit (port from JSIDPlay delay unit and
+	  Monosynth DelayUnit)
+
+2007-05-27 19:51  joxe
+
+	* jvst_examples/jVSTeXamples.jardesc: added DDelay to the jardesc
+
+2007-05-25 19:51  daniel309
+
+	* jvst_native/src/src/ConfigFileReader.cpp: typo
+
+2007-05-20 23:57  daniel309
+
+	* jvst_native/src/jvstwrapper.xcodeproj/martindl.mode1,
+	  jvst_native/src/jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvst_native/src/jvstwrapper.xcodeproj/project.pbxproj,
+	  jvst_native/src/src/VSTV10ToHost.cpp,
+	  jvst_native/src/src/VSTV10ToPlug.cpp,
+	  jvst_native/src/src/VSTV21ToHost.cpp,
+	  jvst_native/src/src/VSTV23ToHost.cpp,
+	  jvst_native/src/src/ConfigFileReader.cpp,
+	  jvst_native/src/src/JNIUtils.cpp, jvst_native/src/src/JNIUtils.h,
+	  jvst_native/src/src/VSTV10ToPlug.h,
+	  jvst_native/src/src/VSTV20ToHost.cpp,
+	  jvst_native/src/src/VSTV22ToHost.cpp,
+	  jvst_native/src/src/VSTV24ToHost.cpp,
+	  jvst_native/src/src/jVSTwRapperMAIN.cpp,
+	  jvst_native/src/src/jVSTwRapperMAIN.h,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java: undef
+	  JNIEXPORT to fix warnings, MAC: strip library and export only
+	  symbols needed, Fix for resume/suspend inspired by JUCEFix for
+	  VST2.4 hasVU / hasClip inspired by JUCEdont redirect stderr any
+	  more --> reworked logging code
+
+2007-05-13 18:02  daniel309
+
+	* jvst_native/src/src/conf/libjvstwrapper.jnilib.ini: added
+	  PluginUIClass parameter, but with all GUI commented out by
+	  default. Also added a note that at least java 1.5.0_06 is
+	  required on the mac for guis
+
+2007-05-13 14:49  daniel309
+
+	* jvst_native/src/: jVSTwRapper.vcproj,
+	  src/ladspa/jLADSPAwRapperMAIN.cpp: changed random() to rand() for
+	  windows compatibility
+
+2007-05-12 00:06  daniel309
+
+	* jvst_native/src/Readme_mac.txt: [no log message]
+
+2007-05-11 20:12  daniel309
+
+	* jvst_native/src/Readme_mac.txt: [no log message]
+
+2007-05-11 19:23  daniel309
+
+	* jvst_native/src/jvstwrapper.xcodeproj/: martindl.mode1,
+	  martindl.pbxuser: [no log message]
+
+2007-05-11 18:40  daniel309
+
+	* jvst_native/src/Readme_linux.txt: [no log message]
+
+2007-05-11 18:36  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: gui wrapper: more checks
+	  for more failure tolerance
+
+2007-05-01 10:28  daniel309
+
+	* jvst_native/src/src/ladspa/jLADSPAwRapperMAIN.cpp: [no log
+	  message]
+
+2007-05-01 10:25  daniel309
+
+	* jvst_native/src/src/ladspa/jLADSPAwRapperMAIN.cpp: added check
+	  for vst synth, etc. now only vst effects are exposed as ladspa
+	  plugins
+
+2007-05-01 09:53  daniel309
+
+	* jvst_native/src/: Readme_linux.txt, Readme_mac.txt: [no log
+	  message]
+
+2007-04-30 23:56  daniel309
+
+	* jvst_native/src/src/ladspa/jLADSPAwRapperMAIN.cpp: ladspa works
+	  now with multiple instances. tested with: audacity / rezound /
+	  muse. Works like a charm!
+
+2007-04-30 22:05  daniel309
+
+	* jvst_native/src/src/ladspa/jLADSPAwRapperMAIN.cpp: ladspa
+	  refinemements
+
+2007-04-29 22:43  daniel309
+
+	* jvst_native/src/: jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvstwrapper.xcodeproj/project.pbxproj, src/JNIUtils.cpp,
+	  src/JNIUtils.h, src/VSTGUIWrapper.cpp, src/VSTGUIWrapper.h,
+	  src/VSTGUIWrapperMAC.h, src/VSTGUIWrapperMAC.mm,
+	  src/jVSTwRapperMAIN.cpp,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.mode1,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.pbxuser: mac
+	  gui integration refinements
+
+2007-04-29 19:54  daniel309
+
+	* jvst_native/src/src/ConfigFileReader.cpp: builds now, AND works
+	  now - sorry...
+
+2007-04-29 19:42  daniel309
+
+	* jvst_native/src/: jVSTwRapper.vcproj, src/ConfigFileReader.cpp:
+	  builds now, sorry...
+
+2007-04-29 19:29  daniel309
+
+	* jvst_native/src/src/ConfigFileReader.cpp: ignore whitespaces in
+	  .ini files
+
+2007-04-29 18:10  daniel309
+
+	* jvst_native/: makefile, src/src/JNIUtils.h,
+	  src/src/VSTV10ToHost.cpp, src/src/VSTV20ToHost.cpp,
+	  src/src/VSTV21ToHost.cpp, src/src/VSTV22ToHost.cpp,
+	  src/src/VSTV23ToHost.cpp, src/src/VSTV24ToHost.cpp,
+	  src/src/jVSTwRapperMAIN.cpp, src/src/jVSTwRapperMAIN.h,
+	  src/src/ladspa/jLADSPAwRapperMAIN.cpp, src/src/ladspa/ladspa.h:
+	  first version of LADSPA integration. A jVSTwRapper plugin is now
+	  VST and LADSPA plugin at the same time!
+
+2007-04-29 11:57  daniel309
+
+	* jvst_native/src/: src/ConfigFileReader.cpp, src/JNIUtils.cpp,
+	  src/JNIUtils.h, src/VSTGUIWrapper.cpp, src/VSTGUIWrapper.h,
+	  src/VSTV10ToHost.cpp, src/VSTV10ToPlug.cpp, src/VSTV10ToPlug.h,
+	  src/VSTV20ToHost.cpp, src/VSTV20ToPlug.cpp, src/VSTV20ToPlug.h,
+	  src/VSTV21ToHost.cpp, src/VSTV21ToPlug.cpp, src/VSTV21ToPlug.h,
+	  src/VSTV22ToHost.cpp, src/VSTV22ToPlug.cpp, src/VSTV22ToPlug.h,
+	  src/VSTV23ToHost.cpp, src/VSTV23ToPlug.cpp, src/VSTV23ToPlug.h,
+	  src/VSTV24ToHost.cpp, src/VSTV24ToPlug.cpp, src/VSTV24ToPlug.h,
+	  src/jVSTwRapperMAIN.cpp, src/jVSTwRapperMAIN.h, Readme_linux.txt,
+	  src/conf/jvstwrapper_linux.ini: code cleanup
+
+2007-04-28 14:54  daniel309
+
+	* jvst_native/src/src/VSTGUIWrapper.cpp: maybe a 1x1 native plug
+	  window fixes some host incompatibilities...
+
+2007-04-24 09:21  daniel309
+
+	* jvst_native/src/Readme_mac.txt: gui integration text added
+
+2007-04-22 11:39  daniel309
+
+	* jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java:
+	  fix to avoid peaks in audio processing... bug reported by a user
+
+2007-04-15 19:17  daniel309
+
+	* jvst_system/src/jvst/wrapper/valueobjects/MidiProgramName.java:
+	  corrected bug reported by marcus foerster
+
+2007-04-12 00:04  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: linux code refinement
+
+2007-04-10 22:09  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: linux code refinement
+
+2007-04-10 20:52  daniel309
+
+	* jvst_native/: .cdtproject, makefile, src/Readme_linux.txt,
+	  src/src/JNIUtils.cpp, src/src/JNIUtils.h,
+	  src/src/VSTV10ToHost.cpp, src/src/VSTV20ToHost.cpp,
+	  src/src/VSTV21ToHost.cpp, src/src/VSTV22ToHost.cpp,
+	  src/src/VSTV23ToHost.cpp, src/src/VSTV24ToHost.cpp,
+	  src/src/jVSTwRapperMAIN.cpp: linux code refinement, export only
+	  symbols that are really needed externally
+
+2007-04-02 22:12  daniel309
+
+	* jvst_native/src/src/JNIUtils.cpp: linux .so discovery
+
+2007-04-02 21:48  daniel309
+
+	* jvst_native/src/Readme_linux.txt: linux .so discovery
+
+2007-04-02 21:44  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/: VSTPluginGUIAdapter.java,
+	  communication/VSTV10ToHost.java: added fix by Marcus Förster
+
+2007-04-02 21:43  daniel309
+
+	* jvst_native/: .cdtproject, .cvsignore, makefile,
+	  src/Readme_linux.txt, src/src/JNIUtils.cpp, src/src/JNIUtils.h,
+	  src/src/VSTV10ToPlug.cpp, src/src/jVSTwRapperMAIN.cpp: added
+	  linux .so discovery stuff --> nasty, ugly bad code!!!
+
+2007-03-31 17:58  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: some code reorgs
+
+2007-03-31 17:52  daniel309
+
+	* jvst_native/: makefile, src/Readme_linux.txt: linux code
+	  refinement, created linux readme
+
+2007-03-31 17:13  daniel309
+
+	* jvst_native/: .cdtproject, makefile, src/src/VSTGUIWrapper.cpp,
+	  src/src/JNIUtils.cpp, src/src/jVSTwRapperMAIN.cpp: linux build
+	  refinements, works now with GUI !!!
+
+2007-03-27 20:27  daniel309
+
+	* jvst_native/: .cdtproject, .cvsignore, .project, makefile,
+	  src/src/JNIUtils.cpp, src/src/JNIUtils.h,
+	  src/src/VSTGUIWrapper.cpp, src/src/VSTGUIWrapper.h,
+	  src/src/VSTV10ToHost.cpp, src/src/VSTV10ToPlug.cpp,
+	  src/src/VSTV10ToPlug.h, src/src/VSTV20ToHost.cpp,
+	  src/src/VSTV20ToPlug.cpp, src/src/VSTV20ToPlug.h,
+	  src/src/VSTV21ToPlug.cpp, src/src/VSTV21ToPlug.h,
+	  src/src/VSTV22ToHost.cpp, src/src/VSTV22ToPlug.cpp,
+	  src/src/VSTV22ToPlug.h, src/src/VSTV23ToPlug.h,
+	  src/src/VSTV24ToPlug.cpp, src/src/VSTV24ToPlug.h,
+	  src/src/jVSTwRapperMAIN.cpp, src/src/jVSTwRapperMAIN.h,
+	  src/src/conf/jvstwrapper_linux.ini, src/src/vstgui/vstgui.cpp,
+	  .settings/org.eclipse.cdt.core.prefs,
+	  src/src/pluginterfaces/vst2.x/aeffect.h: first commit for the
+	  linux port NOTE: I needed to touch aeffect.h from the VST SDK and
+	  vstgui.cpp from the VSTGUI library
+
+2007-03-23 10:08  daniel309
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTGUIWrapperMAC.mm,
+	  jVSTwRapperMAIN.cpp: worked a bit on mac gui integration
+	  jvstwrapper main code cleanup
+
+2007-03-18 18:18  daniel309
+
+	* jvst_native/src/jvstwrapper.xcodeproj/: martindl.mode1,
+	  martindl.pbxuser, project.pbxproj: added custom script to include
+	  icon for the jvstwrapper bundle
+
+2007-03-17 22:32  daniel309
+
+	* jvst_native/src/src/: JNIUtils.h, VSTGUIWrapper.cpp,
+	  VSTV10ToHost.cpp, VSTV10ToPlug.h, VSTV20ToPlug.cpp,
+	  VSTV20ToPlug.h, VSTV24ToPlug.cpp, jVSTwRapperMAIN.cpp,
+	  jVSTwRapperMAIN.h, JNIUtils.cpp, VSTGUIWrapper.h,
+	  VSTV10ToPlug.cpp, VSTV24ToPlug.h: preprocessor pimps to prepare
+	  for a linux build (ifndef MACX --> ifdef MACX, new ifdef WIN32)
+
+2007-03-16 22:13  daniel309
+
+	* jvst_native/src/jvstwrapper.xcodeproj/: martindl.mode1,
+	  martindl.pbxuser, project.pbxproj: set  bundle bit in custom
+	  script action during build
+
+2007-03-16 21:03  daniel309
+
+	*
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTParameterProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTPatchChunkInfo.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTPinProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTSpeakerProperties.java,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToPlug.java:
+	  LOADS of bugfixes --> discovered using the new testsuite
+
+	  win GUI integration code enhancement
+
+2007-03-16 21:03  daniel309
+
+	* jvst_native/src/: src/VSTV20ToHost.cpp, src/VSTV20ToHost.h,
+	  src/VSTV21ToPlug.cpp, src/VSTV10ToPlug.cpp, src/VSTV20ToPlug.cpp,
+	  src/VSTV20ToPlug.h, src/VSTV23ToPlug.cpp,
+	  jVSTwRapper.vcproj.AFFENBERG.martindl.user: LOADS of bugfixes -->
+	  discovered using the new testsuite
+
+2007-03-16 20:59  daniel309
+
+	* jvst_examples/src/jvst/examples/: jayvstxsynth/JayVSTxSynth.java,
+	  jaydlay/JayDLay.java, dreinulldrei/DreiNullDrei.java:
+	  compatibility updates
+
+2007-03-12 23:31  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java,
+	  jvst_native/src/jVSTwRapper.vcproj,
+	  jvst_native/src/src/VSTGUIWrapper.cpp,
+	  jvst_native/src/src/VSTGUIWrapper.h,
+	  jvst_native/src/src/VSTV20ToPlug.cpp: reformatting and more
+	  robust native gui integration in windows (automatic detachment
+	  from native win on error --> works for REAPER)
+
+2007-03-09 16:59  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/JayDLay.java: removed log
+	  message "getprogramnameindexed"
+
+2007-03-08 20:18  daniel309
+
+	* jvst_native/src/src/JNIUtils.cpp: mac version now also displays a
+	  message window if an error occurs
+
+2007-02-25 20:44  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/gui/RotaryKnob.java: added draft
+	  version of tooltip stuff
+
+2007-02-25 20:11  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/gui/RotaryKnob.java: made mouse
+	  dragging more naturally
+
+2007-02-23 18:47  daniel309
+
+	* jvst_native/src/src/JNIUtils.cpp: removed unused var
+
+2007-02-23 18:08  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: removed #debug : we dont
+	  need it anymore...
+
+2007-02-23 17:05  daniel309
+
+	* jvst_native/src/src/: JNIUtils.cpp, JNIUtils.h,
+	  VSTGUIWrapper.cpp, VSTV10ToHost.cpp, VSTV10ToPlug.cpp,
+	  VSTV20ToPlug.cpp, VSTV24ToPlug.cpp, jVSTwRapperMAIN.cpp: cleaned
+	  up logging code
+
+	  dont redirect stdout any more (caused trouble with melodyne) we
+	  dont need it anyways
+
+	  instead, we only redirect now stderr to jvstwrapper_log.txt
+
+2007-02-19 17:41  daniel309
+
+	* jvst_native/src/src/conf/: jVSTwRapper.ini,
+	  libjvstwrapper.jnilib.ini: better description of ClassPath
+	  paramter (can be set to .)
+
+2007-02-19 17:40  daniel309
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, jVSTwRapperMAIN.cpp:
+	  added better default values for .ini settings
+
+2007-02-15 00:45  daniel309
+
+	* jvst_native/src/src/: JNIUtils.cpp, VSTGUIWrapper.cpp,
+	  VSTV10ToPlug.cpp, VSTV10ToPlug.h, jVSTwRapperMAIN.cpp: code
+	  cleanup and first gui tests on mac osx
+
+2007-02-11 14:41  daniel309
+
+	* jvst_native/src/src/: VSTV20ToHost.cpp, VSTV20ToPlug.cpp,
+	  VSTV21ToPlug.cpp, VSTV24ToPlug.cpp: fixed nasty bug that caused
+	  Logic to crash. See forum for details.
+
+2007-02-02 15:08  daniel309
+
+	* jvst_native/src/Readme_mac.txt: minor text changes
+
+2007-01-21 13:16  daniel309
+
+	* jvst_native/src/src/conf/jVSTwRapper.ini: more info to
+	  CustomJVMLocation
+
+2007-01-21 13:05  daniel309
+
+	* jvst_native/src/AUTHORS.txt: initial import
+
+2007-01-20 17:44  daniel309
+
+	* jvst_native/src/Readme_mac.txt: more text
+
+2007-01-20 16:47  daniel309
+
+	* jvst_native/src/: Info.plist, jvstwrapper.icns,
+	  jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvstwrapper.xcodeproj/project.pbxproj: added bundle icon
+
+2007-01-20 16:40  daniel309
+
+	* jvst_native/src/Readme_mac.txt: added more text...
+
+2007-01-20 14:34  daniel309
+
+	* jvst_native/src/: Info.plist, PkgInfo,
+	  jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvstwrapper.xcodeproj/project.pbxproj: added PkgInfo and changed
+	  build scripts so that the library is now correclty identified as
+	  a bundle under max osx
+
+2007-01-19 23:27  daniel309
+
+	* jvst_native/src/: jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser, src/VSTV20ToPlug.cpp,
+	  src/jVSTwRapperMAIN.cpp: added comments to sourcecode
+
+2007-01-10 20:48  daniel309
+
+	* jvst_native/src/: jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvstwrapper.xcodeproj/project.pbxproj, src/jVSTwRapperMAIN.cpp,
+	  src/conf/jVSTwRapper.ini, src/conf/libjvstwrapper.jnilib.ini:
+	  added hidden feature to start a java gui on the mac by using the
+	  same config value as on windows
+
+2007-01-08 00:15  daniel309
+
+	* jvst_native/src/jvstwrapper.xcodeproj/martindl.mode1,
+	  jvst_native/src/jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvst_native/src/src/VSTV20ToPlug.cpp,
+	  jvst_native/src/src/mac_debug_host/mac_debug_host.xcodeproj/martindl.mode1,
+	  jvst_native/src/src/mac_debug_host/mac_debug_host.xcodeproj/martindl.pbxuser,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  jvst_examples/src/jvst/examples/jaydlay/JayDLay.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java:
+	  added deprecated methods again to be MAX backward compatible.
+	  many bug fixes eg. for LUNA as well!
+
+2007-01-07 14:41  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: comments
+	  added
+
+2007-01-07 14:39  daniel309
+
+	*
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java:
+	  fixed a bug that sometimes caused the gui not to be integrated in
+	  the native window. see comments in the source
+
+2007-01-07 01:22  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/gui/RotaryKnob.java: added some
+	  parameter checks
+
+2007-01-07 00:54  daniel309
+
+	*
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java:
+	  ironed out a small bug in dreinulldreigui
+
+2007-01-07 00:53  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/gui/: JSliderPlusText.java,
+	  RotaryKnob.java: minor changes
+
+2007-01-06 19:40  daniel309
+
+	* jvst_native/src/: jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser, src/jVSTwRapperMAIN.cpp:
+	  code cleanup
+
+2007-01-06 19:03  daniel309
+
+	* jvst_examples/.settings/org.eclipse.jdt.core.prefs,
+	  jvst_examples/.settings/org.eclipse.jdt.ui.prefs,
+	  jvst_system/.settings/org.eclipse.jdt.core.prefs,
+	  jvst_system/.settings/org.eclipse.jdt.ui.prefs,
+	  jvst_wrapper/.settings/org.eclipse.jdt.core.prefs,
+	  jvst_wrapper/.settings/org.eclipse.jdt.ui.prefs: added project
+	  specific compiler setting and set the java bytecode compatibility
+	  to 1.3. ---> we want to have max compatibility.
+
+	  we dont use java 1.4+ stuff anyways
+
+2007-01-06 14:48  daniel309
+
+	* jvst_native/src/: jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser, src/VSTGUIWrapper.cpp,
+	  src/VSTV10ToPlug.cpp, src/jVSTwRapperMAIN.cpp,
+	  src/conf/libjvstwrapper.jnilib.ini,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.mode1,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.pbxuser:
+	  fixed CFRunLoop Bug and disabled Custom GUIs on the mac for now.
+	  This causes to many trouble and makes the thing horribly
+	  unstable.this version now is very stable on the mac. tested
+	  with multiple instances on Live6, Amadeus Pro and Amadeus IINo
+	  problems at all!
+
+2007-01-05 21:13  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: added
+	  MAC_X test on the java side and removed the window.dispose() call
+	  for the mac.
+
+2007-01-04 16:14  daniel309
+
+	* jvst_native/src/src/conf/: jVSTwRapper.ini,
+	  libjvstwrapper.jnilib.ini: forum link added as comment
+
+2007-01-04 12:01  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: added some jni comments
+
+2007-01-03 16:06  daniel309
+
+	* jvst_system/src/jvst/wrapper/system/VSTiClassLoaderManager.java:
+	  added comment about classloader native lib loading
+
+2007-01-03 16:01  daniel309
+
+	* jvst_system/src/jvst/wrapper/system/VSTiClassLoaderManager.java:
+	  added comment about classloader native lib loading
+
+2007-01-02 22:27  daniel309
+
+	* jvst_native/src/: jVSTwRapper.vcproj, src/JNIUtils.cpp,
+	  src/jVSTwRapperMAIN.cpp, src/conf/jVSTwRapper.ini: some code
+	  fixes for windows to compile the latest version (win/mac are now
+	  in sync)
+
+2007-01-01 23:42  daniel309
+
+	* jvst_native/src/: .cvsignore,
+	  jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.mode1,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.pbxuser:
+	  changed project settings
+
+2007-01-01 22:25  daniel309
+
+	* jvst_native/src/: Info.plist, Readme_mac.txt,
+	  jvstwrapper.xcodeproj/martindl.mode1,
+	  jvstwrapper.xcodeproj/martindl.pbxuser,
+	  jvstwrapper.xcodeproj/project.pbxproj, src/ConfigFileReader.cpp,
+	  src/ConfigFileReader.h, src/JNIUtils.cpp, src/JNIUtils.h,
+	  src/VSTGUIWrapper.cpp, src/VSTGUIWrapperMAC.h,
+	  src/VSTGUIWrapperMAC.mm, src/VSTV10ToHost.cpp,
+	  src/VSTV10ToPlug.cpp, src/VSTV10ToPlug.h, src/VSTV20ToHost.cpp,
+	  src/VSTV20ToPlug.cpp, src/VSTV24ToPlug.cpp, src/VSTV24ToPlug.h,
+	  src/jVSTwRapperMAIN.cpp, src/jVSTwRapperMAIN.h,
+	  src/conf/libjvstwrapper.jnilib.ini,
+	  src/mac_debug_host/minieditor.cpp,
+	  src/mac_debug_host/minihost-Info.plist,
+	  src/mac_debug_host/minihost.cpp,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.mode1,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/martindl.pbxuser,
+	  src/mac_debug_host/mac_debug_host.xcodeproj/project.pbxproj,
+	  src/pluginterfaces/vst2.x/aeffect.h,
+	  src/pluginterfaces/vst2.x/aeffectx.h,
+	  src/pluginterfaces/vst2.x/vstfxstore.h,
+	  src/public.sdk/vst2.x/aeffeditor.h,
+	  src/public.sdk/vst2.x/audioeffect.cpp,
+	  src/public.sdk/vst2.x/audioeffect.h,
+	  src/public.sdk/vst2.x/audioeffectx.cpp,
+	  src/public.sdk/vst2.x/audioeffectx.h, src/vstgui/Changelog,
+	  src/vstgui/aeffguieditor.cpp, src/vstgui/aeffguieditor.h,
+	  src/vstgui/cfileselector.cpp, src/vstgui/cfileselector.h,
+	  src/vstgui/cscrollview.cpp, src/vstgui/cscrollview.h,
+	  src/vstgui/ctabview.cpp, src/vstgui/ctabview.h,
+	  src/vstgui/plugguieditor.cpp, src/vstgui/plugguieditor.h,
+	  src/vstgui/vstcontrols.cpp, src/vstgui/vstcontrols.h,
+	  src/vstgui/vstgui.cpp, src/vstgui/vstgui.h,
+	  src/vstgui/vstkeycode.h, src/vstgui/vstplugscarbon.h,
+	  src/vstgui/vstplugsmac.h, src/vstgui/vstplugsmacho.h,
+	  src/vstgui/vstplugsquartz.h: first milestone of new mac port
+
+2006-12-06 17:45  daniel309
+
+	* jvst_native/src/src/: pluginterfaces/vst2.x/aeffect.h,
+	  pluginterfaces/vst2.x/aeffectx.h,
+	  pluginterfaces/vst2.x/vstfxstore.h, conf/jVSTwRapper.ini: ***
+	  keyword substitution change ***
+
+2006-12-06 17:42  daniel309
+
+	* jvst_native/src/: jVSTwRapper.dsp, jVSTwRapper.plg,
+	  jVSTwRapper.vcproj, src/VSTGUIWrapper.h, src/VSTV10ToPlug.cpp,
+	  src/VSTV22ToPlug.h, src/VSTV23ToHost.cpp, src/VSTV24ToHost.h,
+	  src/VSTV24ToPlug.h, src/jVSTwRapper.def,
+	  src/ConfigFileReader.cpp, src/ConfigFileReader.h,
+	  src/JNIUtils.cpp, src/JNIUtils.h, src/VSTGUIWrapper.cpp,
+	  src/VSTV10ToHost.cpp, src/VSTV10ToHost.h, src/VSTV10ToPlug.h,
+	  src/VSTV20ToHost.cpp, src/VSTV20ToHost.h, src/VSTV20ToPlug.cpp,
+	  src/VSTV20ToPlug.h, src/VSTV21ToHost.cpp, src/VSTV21ToHost.h,
+	  src/VSTV21ToPlug.cpp, src/VSTV21ToPlug.h, src/VSTV22ToHost.cpp,
+	  src/VSTV22ToHost.h, src/VSTV22ToPlug.cpp, src/VSTV23ToHost.h,
+	  src/VSTV23ToPlug.cpp, src/VSTV23ToPlug.h, src/VSTV24ToHost.cpp,
+	  src/VSTV24ToPlug.cpp, src/jVSTwRapperMAIN.cpp,
+	  src/jVSTwRapperMAIN.h, src/vstgui/Changelog,
+	  src/vstgui/aeffguieditor.cpp, src/vstgui/aeffguieditor.h,
+	  src/vstgui/cfileselector.cpp, src/vstgui/cfileselector.h,
+	  src/vstgui/cscrollview.cpp, src/vstgui/cscrollview.h,
+	  src/vstgui/ctabview.cpp, src/vstgui/ctabview.h,
+	  src/vstgui/plugguieditor.cpp, src/vstgui/plugguieditor.h,
+	  src/vstgui/vstcontrols.cpp, src/vstgui/vstcontrols.h,
+	  src/vstgui/vstgui.cpp, src/vstgui/vstgui.h,
+	  src/vstgui/vstkeycode.h, src/vstgui/vstplugscarbon.h,
+	  src/vstgui/vstplugsmac.h, src/vstgui/vstplugsmacho.h,
+	  src/vstgui/vstplugsquartz.h, src/public.sdk/vst2.x/aeffeditor.h,
+	  src/public.sdk/vst2.x/audioeffect.cpp,
+	  src/public.sdk/vst2.x/audioeffect.h,
+	  src/public.sdk/vst2.x/audioeffectx.cpp,
+	  src/public.sdk/vst2.x/audioeffectx.h: *** keyword substitution
+	  change ***
+
+2006-10-13 23:21  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java:
+	  corrected typo in cando_plug_receive_midi_event
+
+2006-08-15 23:50  daniel309
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, ConfigFileReader.h,
+	  JNIUtils.cpp, jVSTwRapperMAIN.cpp: added config item
+	  CustomJVMLocation to .ini file to be able to control which jvm is
+	  loaded by the wrapper.
+
+	  suggested by Michael from levelgroundmedia.com
+
+2006-08-04 09:44  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java:
+	  corrected typo: CANDO_RECEIVE_VST_MIDI_EVENT instead of
+	  CANDO_REVEIVE_VST_MIDI_EVENT
+
+2006-07-26 21:25  daniel309
+
+	* jvst_examples/: src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  .project, src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java,
+	  src/jvst/examples/dreinulldrei/DreiNullDreiNapkinGUI.java,
+	  src/jvst/examples/jaydlay/JayDLayGUI.java,
+	  src/jvst/examples/jaydlay/JayDLayNapkinGUI.java,
+	  src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java,
+	  src/jvst/examples/jayvstxsynth/JayVSTxSynthNapkinGUI.java: added
+	  dreinulldreigui and did some cleanup work
+
+2006-07-26 21:23  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/gui/: JSliderPlusText.java,
+	  RotaryKnob.java, RotaryKnobPlusText.java: added a Rotary Knob GUI
+	  element
+
+2006-07-16 12:15  daniel309
+
+	*
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java:
+	  changed order of boxes. volume first!
+
+2006-06-18 23:04  daniel309
+
+	*
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java:
+	  debug was accidentally TRUE, is now FALSE
+
+2006-06-17 16:10  daniel309
+
+	* jvst_examples/:
+	  src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java,
+	  src/jvst/examples/jayvstxsynth/JayVSTxSynthNapkinGUI.java,
+	  napkinlaf.jar,
+	  src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java,
+	  src/jvst/examples/jaydlay/JayDLay.java,
+	  src/jvst/examples/jaydlay/JayDLayGUI.java: changes to the latest
+	  version (v1.0) of napkinlaf!
+
+	  guis now work perfect!!!
+
+2006-06-07 09:30  daniel309
+
+	* jvst_examples/src/jvst/:
+	  examples/dreinulldrei/DreiNullDreiGUI.java,
+	  examples/jaydlay/JayDLay.java, examples/jaydlay/JayDLayGUI.java,
+	  examples/jayvstxsynth/JayVSTxSynthGUI.java, .cvsignore: minor
+	  fixes, and made JayDLay finally behave right when someone changes
+	  presets in the host.
+
+2006-06-05 15:37  daniel309
+
+	* jvst_native/src/src/jVSTwRapperMAIN.cpp: the new ms visual c++
+	  compiler only allows int as return type for main. commented the
+	  anyways deprecated(since 2.4) entry point out.
+
+2006-06-05 15:35  daniel309
+
+	* jvst_native/src/: jVSTwRapper.vcproj,
+	  jVSTwRapper.vcproj.AFFENBERG.martindl.user: updated project files
+	  for ms visual studio 2005 express
+
+2006-04-14 09:17  danielreinert
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java:
+	  Workaround for Cubase 3: redecoration code. Daniel Reinert
+
+2006-04-14 09:11  danielreinert
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTV10ToPlug.cpp,
+	  VSTV20ToPlug.cpp: Workaround for Cubase 3 and fix for Adobe
+	  Audition. Daniel Reinert
+
+2006-04-09 17:55  danielreinert
+
+	* jvst_native/src/src/: VSTGUIWrapper.cpp, VSTV10ToHost.cpp,
+	  VSTV10ToPlug.cpp, VSTV10ToPlug.h, VSTV20ToHost.cpp: bugfixes in
+	  ioChanged() and setParameterAutomated(). Daniel Reinert
+
+2006-04-06 00:59  daniel309
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, ConfigFileReader.h,
+	  JNIUtils.cpp, JNIUtils.h, VSTGUIWrapper.cpp, VSTGUIWrapper.h,
+	  VSTV10ToHost.cpp, VSTV10ToHost.h, VSTV10ToPlug.cpp,
+	  VSTV10ToPlug.h, VSTV20ToHost.cpp, VSTV20ToHost.h,
+	  VSTV20ToPlug.cpp, VSTV20ToPlug.h, VSTV21ToHost.cpp,
+	  VSTV21ToHost.h, VSTV21ToPlug.cpp, VSTV21ToPlug.h,
+	  VSTV22ToHost.cpp, VSTV22ToHost.h, VSTV22ToPlug.cpp,
+	  VSTV22ToPlug.h, VSTV23ToHost.cpp, VSTV23ToHost.h,
+	  VSTV23ToPlug.cpp, VSTV23ToPlug.h, VSTV24ToHost.cpp,
+	  VSTV24ToHost.h, VSTV24ToPlug.cpp, VSTV24ToPlug.h,
+	  jVSTwRapperMAIN.cpp, jVSTwRapperMAIN.h, conf/jVSTwRapper.ini:
+	  switched license from gpl to lgpl and added license texts
+
+2006-04-06 00:50  daniel309
+
+	* jvst_system/src/jvst/wrapper/valueobjects/MidiKeyName.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/MidiProgramCategory.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/MidiProgramName.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTEvent.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTEvents.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTMidiEvent.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTParameterProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTPatchChunkInfo.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTPinProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTSpeakerArrangement.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTSpeakerProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTTimeInfo.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTVariableIO.java,
+	  jvst_system/src/jvst/wrapper/system/ExceptionUtililities.java,
+	  jvst_system/src/jvst/wrapper/system/VSTiClassLoader.java,
+	  jvst_system/src/jvst/wrapper/system/VSTiClassLoaderManager.java,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java,
+	  jvst_examples/src/jvst/examples/dreinulldrei/GMNames.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/GMNames.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynthNapkinGUI.java:
+	  switched license from gpl to lgpl and added license texts
+
+2006-04-06 00:44  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/: gui/VSTPluginGUI.java,
+	  VSTPluginAdapter.java, VSTPluginGUIAdapter.java,
+	  communication/VSTV10ToHost.java, communication/VSTV10ToPlug.java,
+	  communication/VSTV20ToHost.java, communication/VSTV20ToPlug.java,
+	  communication/VSTV21ToHost.java, communication/VSTV21ToPlug.java,
+	  communication/VSTV22ToHost.java, communication/VSTV22ToPlug.java,
+	  communication/VSTV23ToHost.java, communication/VSTV23ToPlug.java,
+	  communication/VSTV24ToHost.java, communication/VSTV24ToPlug.java:
+	  switched license from gpl to lgpl and added license texts
+
+2006-04-06 00:30  daniel309
+
+	* jvst_system/LICENSE.txt, jvst_wrapper/LICENSE.txt: switched
+	  license from gpl to lgpl and added license texts
+
+2006-04-06 00:29  daniel309
+
+	* jvst_examples/LICENSE.txt, jvst_native/src/LICENSE.txt: changed
+	  to lgpl and added license texts
+
+2006-03-12 10:44  daniel309
+
+	* jvst_examples/src/jvst/examples/jaydlay/JayDLay.java: ironed out
+	  a bug that caused audio cracks when you move the delay slider.
+
+2006-03-12 10:37  daniel309
+
+	* jvst_native/src/src/: VSTV10ToHost.cpp, VSTV10ToPlug.cpp,
+	  VSTV20ToHost.cpp, VSTV20ToPlug.cpp, VSTV24ToPlug.cpp: changed
+	  some more stuff to vstint32. just to be consistent with the vst
+	  2.4 api
+
+2006-03-11 21:55  danielreinert
+
+	* jvst_native/src/src/: VSTV10ToPlug.cpp, VSTV10ToPlug.h,
+	  VSTV20ToPlug.cpp, VSTV20ToPlug.h, VSTV21ToPlug.cpp,
+	  VSTV21ToPlug.h, VSTV23ToPlug.cpp, VSTV23ToPlug.h: Fixed long
+	  parameters to VstInt32 for VST SDK 2.4. Daniel Reinert
+
+2006-03-04 15:49  danielreinert
+
+	* jvst_native/src/src/VSTV24ToPlug.cpp: Small bug in
+	  processDoubleReplacing. Daniel Reinert
+
+2006-03-04 15:47  danielreinert
+
+	* jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java:
+	  wantEvents must be kept for compatibility reasons. Daniel Reinert
+
+2006-03-02 17:38  daniel309
+
+	* jvst_native/src/src/conf/jVSTwRapper.ini: introduced a WORKING
+	  set of options to allow remote debugging of the vst plugin. jvm
+	  will be suspended at startup until the debig client connects.
+
+2006-02-27 22:48  daniel309
+
+	* jvst_native/src/src/: VSTV10ToHost.cpp, VSTV20ToHost.cpp,
+	  VSTV21ToHost.cpp, VSTV22ToHost.cpp, VSTV23ToHost.cpp,
+	  VSTV24ToHost.cpp, jVSTwRapperMAIN.cpp: update to incorporate
+	  changes to the new vst2.4 sdk
+
+2006-02-27 15:00  daniel309
+
+	* jvst_examples/src/jvst/examples/: dreinulldrei/DreiNullDrei.java,
+	  jaydlay/JayDLay.java, jayvstxsynth/JayVSTxSynth.java: update to
+	  incorporate changes to the new vst2.4 sdk
+
+2006-02-27 14:55  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV10ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV10ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV22ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV24ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV24ToPlug.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTEvent.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTMidiEvent.java,
+	  jvst_native/src/jVSTwRapper.vcproj,
+	  jvst_native/src/src/VSTV10ToHost.cpp,
+	  jvst_native/src/src/VSTV20ToHost.cpp,
+	  jvst_native/src/src/VSTV23ToPlug.h,
+	  jvst_native/src/src/VSTV24ToHost.cpp,
+	  jvst_native/src/src/VSTV24ToHost.h,
+	  jvst_native/src/src/VSTV24ToPlug.cpp,
+	  jvst_native/src/src/VSTV24ToPlug.h,
+	  jvst_native/src/src/pluginterfaces/vst2.x/aeffect.h: update to
+	  incorporate changes to the new vst2.4 sdk
+
+2006-02-26 01:21  daniel309
+
+	* jvst_native/src/src/: JNIUtils.h, VSTGUIWrapper.cpp,
+	  VSTGUIWrapper.h, VSTV10ToHost.cpp, VSTV10ToPlug.cpp,
+	  VSTV10ToPlug.h, VSTV20ToHost.cpp, VSTV20ToPlug.cpp,
+	  VSTV20ToPlug.h, VSTV23ToPlug.cpp, VSTV23ToPlug.h,
+	  jVSTwRapper.def, jVSTwRapperMAIN.cpp, jVSTwRapperMAIN.h: update
+	  to incorporate changes to the new vst2.4 sdk
+
+2006-02-26 01:14  daniel309
+
+	* jvst_native/src/src/: vstgui/Changelog, vstgui/aeffguieditor.cpp,
+	  vstgui/aeffguieditor.h, vstgui/cfileselector.cpp,
+	  vstgui/cfileselector.h, vstgui/cscrollview.cpp,
+	  vstgui/cscrollview.h, vstgui/ctabview.cpp, vstgui/ctabview.h,
+	  vstgui/plugguieditor.cpp, vstgui/plugguieditor.h,
+	  vstgui/vstcontrols.cpp, vstgui/vstcontrols.h, vstgui/vstgui.cpp,
+	  vstgui/vstgui.h, vstgui/vstkeycode.h, vstgui/vstplugscarbon.h,
+	  vstgui/vstplugsmac.h, vstgui/vstplugsmacho.h,
+	  vstgui/vstplugsquartz.h, pluginterfaces/vst2.x/aeffect.h,
+	  pluginterfaces/vst2.x/aeffectx.h,
+	  pluginterfaces/vst2.x/vstfxstore.h,
+	  public.sdk/vst2.x/aeffeditor.h,
+	  public.sdk/vst2.x/audioeffect.cpp,
+	  public.sdk/vst2.x/audioeffect.h,
+	  public.sdk/vst2.x/audioeffectx.cpp,
+	  public.sdk/vst2.x/audioeffectx.h: update to incorporate changes
+	  to the new vst2.4 sdk
+
+2006-02-26 01:08  daniel309
+
+	* jvst_native/src/: jVSTwRapper.dsp, jVSTwRapper.vcproj,
+	  src/vst/AEffEditor.hpp, src/vst/AEffect.h,
+	  src/vst/AudioEffect.cpp, src/vst/AudioEffect.hpp,
+	  src/vst/aeffectx.h, src/vst/aeffguieditor.cpp,
+	  src/vst/aeffguieditor.h, src/vst/audioeffectx.cpp,
+	  src/vst/audioeffectx.h, src/vst/vstcontrols.cpp,
+	  src/vst/vstcontrols.h, src/vst/vstgui.cpp, src/vst/vstgui.h,
+	  src/vst/vstplugsmacho.h: update to incorporate changes to the new
+	  vst2.4 sdk
+
+2006-02-26 01:01  daniel309
+
+	* jvst_examples/src/jvst/examples/: dreinulldrei/DreiNullDrei.java,
+	  jaydlay/JayDLay.java, jayvstxsynth/JayVSTxSynth.java: update to
+	  incorporate changes to the new vst2.4 sdk
+
+2006-02-26 00:59  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/communication/: VSTV10ToHost.java,
+	  VSTV20ToHost.java: update incorporate changes to the new vst2.4
+	  sdk
+
+2006-01-26 21:21  danielreinert
+
+	* jvst_native/src/src/VSTV20ToHost.cpp,
+	  jvst_native/src/src/VSTV20ToHost.h,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java:
+	  Method sizeWindow added. Daniel Reinert
+
+2006-01-15 11:52  danielreinert
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: Changes to make
+	  getChunk/setChunk working. Daniel Reinert
+
+2006-01-15 11:48  danielreinert
+
+	* jvst_wrapper/src/jvst/wrapper/communication/VSTV10ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java,
+	  jvst_native/src/src/VSTV10ToPlug.h: Changes to make
+	  getChunk/setChunk working. Daniel Reinert
+
+2006-01-08 22:54  daniel309
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp: small change in
+	  ensureJavaThreadAttachment(): moved the checkException call from
+	  the begin to the end of the method. to avoid errors when the
+	  current env is invalid and we havent attached to the new thread
+	  yet.
+
+2006-01-08 12:26  daniel309
+
+	* jvst_wrapper/.cvsignore, jvst_wrapper/javadoc.xml,
+	  jvst_native/src/.cvsignore: prepare for new new release
+
+2006-01-08 11:33  daniel309
+
+	* jvst_native/src/jVSTwRapper.vcproj: path update
+
+2006-01-08 10:22  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java: changed
+	  wrapperinstance from public to private
+
+2006-01-06 21:08  danielreinert
+
+	* jvst_native/src/src/VSTV10ToPlug.cpp,
+	  jvst_native/src/src/VSTV20ToHost.cpp,
+	  jvst_native/src/src/VSTV21ToHost.cpp,
+	  jvst_native/src/src/VSTV22ToHost.cpp,
+	  jvst_native/src/src/VSTV23ToHost.cpp,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  jvst_examples/src/jvst/examples/jaydlay/JayDLay.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java:
+	  Fixed error in C++ when creating multiple instances. Daniel
+	  Reinert
+
+2006-01-06 21:04  danielreinert
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java,
+	  jvst_native/src/src/jVSTwRapperMAIN.cpp,
+	  jvst_native/src/src/VSTV10ToHost.cpp: Fixed error in C++ when
+	  creating multiple instances. Daniel Reinert
+
+2005-12-26 01:22  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java: added
+	  comments for deprecated methods
+
+2005-12-26 01:20  daniel309
+
+	* jvst_examples/manifest.mf, jvst_examples/jVSTeXamples.jardesc,
+	  jvst_system/jVSTsYstem_jar.jardesc,
+	  jvst_wrapper/jVSTwRapper_bin.jardesc, jvst_wrapper/manifest.mf:
+	  [no log message]
+
+2005-12-26 00:51  daniel309
+
+	* jvst_native/src/src/conf/jVSTwRapper.ini: better documentation on
+	  the CloseNativePlugWin and AttachToNativeWin options changed
+	  default value of CloseNativePlugWin to 0
+
+2005-12-25 13:37  daniel309
+
+	* jvst_native/src/src/conf/jVSTwRapper.ini: added
+	  "AttachToNativePluginWindow" config value
+
+2005-12-25 09:31  danielreinert
+
+	* jvst_native/src/src/: ConfigFileReader.cpp, ConfigFileReader.h,
+	  VSTGUIWrapper.cpp, VSTGUIWrapper.h: Modifications for embedding a
+	  java-window in the native plugin-window.  Library jawt.lib must
+	  be linked with the project but loading of jawt.dll must be
+	  delayed! Daniel Reinert
+
+2005-12-25 09:27  danielreinert
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java:
+	  Modifications for embedding a java-window in the native
+	  plugin-window. Daniel Reinert
+
+2005-12-06 19:25  danielreinert
+
+	* jvst_native/src/src/VSTV20ToPlug.cpp: Fixed some memory leaks.
+	  Daniel Reinert
+
+2005-12-06 19:22  danielreinert
+
+	* jvst_native/src/src/VSTV20ToHost.cpp: Fixed bug in
+	  InitEventsCache, some memory leaks and added posibility to
+	  transmit more than 2 events (256 max now).  Daniel Reinert
+
+2005-12-06 00:17  daniel309
+
+	* jvst_wrapper/.classpath: project name cleanup
+
+2005-12-06 00:14  daniel309
+
+	* jvst_examples/.cvsignore, jvst_native/.project,
+	  jvst_system/.cvsignore, jvst_wrapper/.cvsignore: [no log message]
+
+2005-12-06 00:13  daniel309
+
+	* jvst_examples/.classpath: project names cleaned up
+
+2004-09-15 18:47  daniel309
+
+	* jvst_examples/src/jvst/examples/:
+	  jayvstxsynth/JayVSTxSynthGUI.java,
+	  jayvstxsynth/JayVSTxSynthNapkinGUI.java,
+	  dreinulldrei/DreiNullDreiGUI.java: [no log message]
+
+2004-09-14 23:29  daniel309
+
+	* jvst_examples/:
+	  src/jvst/examples/dreinulldrei/DreiNullDreiGUI.java, .classpath,
+	  napkinlaf.jar: [no log message]
+
+2004-09-01 02:52  daniel309
+
+	* jvst_wrapper/javadoc.xml, jvst_native/src/jVSTwRapper.plg,
+	  jvst_native/src/src/ConfigFileReader.cpp,
+	  jvst_native/src/src/ConfigFileReader.h,
+	  jvst_native/src/src/VSTGUIWrapper.cpp,
+	  jvst_native/src/src/conf/jVSTwRapper.ini: [no log message]
+
+2004-08-27 18:24  daniel309
+
+	* jvst_examples/.classpath, jvst_native/src/jVSTwRapper.plg,
+	  jvst_native/src/src/conf/jVSTwRapper.ini, jvst_system/.project,
+	  jvst_wrapper/.classpath: [no log message]
+
+2004-08-10 18:25  daniel309
+
+	* jvst_system/src/jvst/wrapper/valueobjects/VSTTimeInfo.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToPlug.java,
+	  jvst_native/src/jVSTwRapper.plg,
+	  jvst_native/src/src/ConfigFileReader.cpp,
+	  jvst_native/src/src/JNIUtils.cpp,
+	  jvst_native/src/src/VSTV10ToPlug.cpp,
+	  jvst_native/src/src/VSTV20ToHost.cpp,
+	  jvst_native/src/src/VSTV20ToPlug.cpp,
+	  jvst_native/src/src/VSTV21ToPlug.cpp,
+	  jvst_native/src/src/VSTV23ToPlug.cpp,
+	  jvst_examples/src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  jvst_examples/src/jvst/examples/jaydlay/JayDLay.java,
+	  jvst_examples/src/jvst/examples/jayvstxsynth/JayVSTxSynth.java:
+	  [no log message]
+
+2004-08-09 19:19  daniel309
+
+	* jvst_native/src/: src/JNIUtils.cpp, src/VSTV20ToPlug.cpp,
+	  src/jVSTwRapperMAIN.cpp, jVSTwRapper.dsp, jVSTwRapper.plg: [no
+	  log message]
+
+2004-08-09 18:28  daniel309
+
+	* jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java: [no log
+	  message]
+
+2004-08-06 23:21  daniel309
+
+	* jvst_native/src/: src/ConfigFileReader.cpp,
+	  src/ConfigFileReader.h, src/JNIUtils.cpp, src/JNIUtils.h,
+	  src/VSTGUIWrapper.cpp, src/VSTGUIWrapper.h, src/VSTV10ToHost.cpp,
+	  src/VSTV10ToHost.h, src/VSTV10ToPlug.cpp, src/VSTV10ToPlug.h,
+	  src/VSTV20ToHost.cpp, src/VSTV20ToHost.h, src/VSTV20ToPlug.cpp,
+	  src/VSTV20ToPlug.h, src/VSTV21ToHost.cpp, src/VSTV21ToHost.h,
+	  src/VSTV21ToPlug.cpp, src/VSTV21ToPlug.h, src/VSTV22ToHost.cpp,
+	  src/VSTV22ToHost.h, src/VSTV22ToPlug.cpp, src/VSTV22ToPlug.h,
+	  src/VSTV23ToHost.cpp, src/VSTV23ToHost.h, src/VSTV23ToPlug.cpp,
+	  src/VSTV23ToPlug.h, src/jVSTwRapper.def, src/jVSTwRapperMAIN.cpp,
+	  src/jVSTwRapperMAIN.h, jVSTwRapper.dsp, jVSTwRapper.plg,
+	  jVSTwRapper.vcproj, src/conf/jVSTwRapper.ini,
+	  src/vst/AEffEditor.hpp, src/vst/AEffect.h,
+	  src/vst/AudioEffect.cpp, src/vst/AudioEffect.hpp,
+	  src/vst/aeffectx.h, src/vst/aeffguieditor.cpp,
+	  src/vst/aeffguieditor.h, src/vst/audioeffectx.cpp,
+	  src/vst/audioeffectx.h, src/vst/vstcontrols.cpp,
+	  src/vst/vstcontrols.h, src/vst/vstgui.cpp, src/vst/vstgui.h,
+	  src/vst/vstplugsmacho.h: initial import for the new cvs structure
+
+2004-08-06 23:10  daniel309
+
+	* jvst_system/.classpath, jvst_system/.project,
+	  jvst_system/jVSTsYstem_jar.jardesc,
+	  jvst_system/src/jvst/wrapper/system/ExceptionUtililities.java,
+	  jvst_system/src/jvst/wrapper/system/VSTiClassLoader.java,
+	  jvst_system/src/jvst/wrapper/system/VSTiClassLoaderManager.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/MidiKeyName.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/MidiProgramCategory.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/MidiProgramName.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTEvent.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTEvents.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTMidiEvent.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTParameterProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTPatchChunkInfo.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTPinProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTSpeakerArrangement.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTSpeakerProperties.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTTimeInfo.java,
+	  jvst_system/src/jvst/wrapper/valueobjects/VSTVariableIO.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV10ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV10ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV20ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV21ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV21ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV22ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV22ToPlug.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV23ToHost.java,
+	  jvst_wrapper/src/jvst/wrapper/communication/VSTV23ToPlug.java,
+	  jvst_wrapper/.classpath, jvst_wrapper/.project,
+	  jvst_wrapper/jVSTwRapper_bin.jardesc, jvst_wrapper/javadoc.xml,
+	  jvst_wrapper/manifest.mf,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginAdapter.java,
+	  jvst_wrapper/src/jvst/wrapper/VSTPluginGUIAdapter.java,
+	  jvst_wrapper/src/jvst/wrapper/gui/VSTPluginGUI.java: initial
+	  import for the new cvs structure
+
+2004-08-06 23:06  daniel309
+
+	* jvst_examples/: src/jvst/.cvsignore,
+	  src/jvst/examples/jayvstxsynth/JayVSTxSynthGUI.java, .classpath,
+	  .project, jVSTeXamples.jardesc, manifest.mf,
+	  src/jvst/examples/dreinulldrei/DreiNullDrei.java,
+	  src/jvst/examples/dreinulldrei/GMNames.java,
+	  src/jvst/examples/jaydlay/JayDLay.java,
+	  src/jvst/examples/jaydlay/JayDLayGUI.java,
+	  src/jvst/examples/jayvstxsynth/GMNames.java,
+	  src/jvst/examples/jayvstxsynth/JayVSTxSynth.java: new cvs
+	  structure
+

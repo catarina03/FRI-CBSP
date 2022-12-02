@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>jVSTwRapper - Java-Based Audio Plug-Ins</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="java vst wrapper audio realtime dsp virtual studio technology" />
+		<meta name="keywords" content="java,vst,audio units,ladspa,wrapper,audio,realtime,dsp,virtual,studio,technology" />
+		<meta name="author" content="daniel309" />
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<link rel="alternate" type="application/rss+xml" title="jVSTwRapper News" href="http://sourceforge.net/export/rss2_projnews.php?group_id=92192&amp;rss_fulltext=1" />
+		<link rel="alternate" type="application/rss+xml" title="jVSTwRapper File Releases" href="http://sourceforge.net/export/rss2_projfiles.php?group_id=92192" />
+	</head>
+
+	<body>
+		<div id="main">
+			<div id="topmenu">
+				<a href="http://sourceforge.net/project/showfiles.php?group_id=92192">Download</a><a href="http://sourceforge.net/news/?group_id=92192">News</a><a href="http://www.sourceforge.net/projects/jvstwrapper/">SourceForge.net</a><a href="http://sourceforge.net/forum/forum.php?forum_id=318265">Forum</a><a href="#contact">Contact</a>
+			</div>
+
+			<div id="header">
+				<span class="title">j<span class="darktitle">VST</span>wRapper</span><br />
+				<table width="100%" border="0">
+					<tr>
+						<td><font color="black">Java-Based Audio Plug-Ins</font></td>
+						<td>																					
+							<!-- AddThis Button BEGIN -->
+							<a href="http://www.addthis.com/bookmark.php" onclick="addthis_url   = location.href; addthis_title = document.title; return addthis_click(this);" target="_blank"><img src="http://s9.addthis.com/button1-bm.gif" align="right" width="125" height="16" border="0" alt="Bookmark and Share" /></a> <script type="text/javascript">var addthis_pub = 'daniel309';</script><script type="text/javascript" src="http://s9.addthis.com/js/widget.php?v=10"></script>  
+							<!-- AddThis Button END -->		
+							
+							<img align="right" alt="pixel" width="5" border="0" src="http://jvstwrapper.sourceforge.net/images/pixel.gif" />							
+							
+							<!-- AddThis Feed Button BEGIN -->
+							<a href="http://www.addthis.com/feed.php?pub=daniel309&amp;h1=http%3A%2F%2Fsourceforge.net%2Fexport%2Frss2_projnews.php%3Fgroup_id%3D92192%26rss_fulltext%3D1&amp;t1=" title="Subscribe using any feed reader!"><img src="http://s9.addthis.com/button1-rss.gif" align="right" width="125" height="16" border="0" alt="AddThis Feed Button" /></a>
+							<!-- AddThis Feed Button END -->
+							
+							<img align="right" alt="pixel" width="5" border="0" src="http://jvstwrapper.sourceforge.net/images/pixel.gif" />
+							<a href="http://sourceforge.net/export/rss2_project.php?group_id=92192"><img align="right" border="0" src="http://jvstwrapper.sourceforge.net/images/rss.gif" alt="rss news feed" /></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="content">
+				<!--  No micro nav
+					<div id="breadcrumb">
+						<a href="">home</a> &gt; <a href="">products</a> &gt; <a href="">one</a>
+					</div>
+				-->
+
+
+				<center>
+
+				Every click supports this project. Thank you.
+					<br /><br />
+
+					<script type="text/javascript"><!--
+				google_ad_client = "pub-7172692043450154";
+				google_ad_width = 468;
+				google_ad_height = 60;
+				google_ad_format = "468x60_as";
+				google_ad_type = "text_image";
+				google_ad_channel = "";
+				google_color_border = "FFFFFF";
+				google_color_bg = "ffffff";
+				google_color_link = "0000FF";
+				google_color_text = "000000";
+				google_color_url = "008000";
+				//-->
+					</script>
+					<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+
+				</center>
+
+				<br /><br />
+
+				<div id="block">
+				jVSTwRapper is an easy and reliable wrapper to write audio plug-ins in Java. 
+				It enables you to develop VST (2.4), Audio Unit (AU) and LADSPA compatible audio plugins and virtual instruments 
+				plus user interfaces (Swing) and run them on Windows, Linux and Mac OSX. 
+				Five demo plugins (+src) are included.
+				</div>
+
+				<!-- CONTENT -->
+
+				<!--<h3><font style="BACKGROUND-COLOR: yellow">NOTE for those looking for the Mac OSX version 0.9f: I will upload this version shortly</font></h3>-->
+
+				<h3 id="intro">INTRO</h3>
+				The Steinberg VST interface technology is used and supported by a large variety of different audio 
+				applications on different platforms like Windows, Linux and Mac OS X. This technology is a de facto  
+				standard for audio applications, and provides the richest set of functionality for audio plugin programming. 
+				jVSTwRapper therefore uses VST as the base technology and translates other audio plugin standards such as 
+				Audio Unit (AU) or LADSPA to VST by means of "native stubs". 
+				<br /><br />
+				jVSTwRapper therefore is a multi-platform, multi-plugin-technology project, grounded by VST technology. 
+				By providing native stubs for each platform and plug-in technology, <b>a single jVSTwRapper plugin runs on 
+				three platforms (windows, linux, mac osx) and supports three plugin technologies (VST, AU, LADSPA) without 
+				any code changes or recompilation.</b> Multi-platform plugins are created with a single 
+				command (<a href="#multi">[here]</a> is more info). 
+				<br /><br />
+				<center>
+				<b><font color="red">Please note that jVSTwRapper is beta software, known issues can be found </font><a href="#future">[here]</a>.</b> <br />
+				Please also make sure to check out the 
+				<a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a> if you find any issues. 
+				</center> 
+				<br />
+				<a href="#main">[top]</a>
+
+
+				<h3>HOW IT WORKS</h3>
+				jVSTwRapper makes it possible to<br />
+				<br />
+				<center><b>develop VST, Audio Unit (AU) and LADSPA plugins with the <br /> Java programming language</b></center><br />
+				It delegates calls from the host system to an java interface and vice versa. 
+				All you have to do is to write a java class that implements the wrapper 
+				interface and code the audio algorithm. Providing a user interface for your 
+				audio plugin works similar: just implement the respective Java interface. You wont need to touch any 
+				native code, operating system specific workarounds or GUI toolkits. Also, no knowledge of Audio Units (AU) 
+				or LADSPA is required. You entirely work with Java and the Java version of the VST interfaces. <br />
+				<br />
+				The jVSTwRapper also enables you to write <b>platform independent (mac/win/linux) plugins.</b> 
+				The same files run, without any additional effort (no need for recompilation, no platform 
+				specific GUI, etc.) on all platforms. The wrapper itself is a native compiled binary (.so on linux, 
+				.vst and .component bundle on the mac, .dll on windows) that invokes a JVM and delegates native calls to the 
+				VST plugin implemented in java. 
+				<br/>
+				Since VST provides the richest set of functionality amongst all audio plugin standards, the java part  
+				of the VST plugin is used to back the Audio Unit (AU) and LADSPA native stubs, i.e.the LADSPA and 
+				AU version follow the exact same procedure as the VST version: to the host application, the native 
+				stub looks like any other VST, AU or LADSPA plugin. Upon using the plugin, calls are forwarded 
+				to their Java-VST equivalent. 
+				<br/>
+				<a href="#main">[top]</a>
+
+
+				<h3 id="installation">INSTALLATION</h3>
+				<ul>
+					<li>If you dont have java, download it from <a href="http://www.java.com">[http://www.java.com]</a></li>
+					<li>Make sure that you have a correctly installed Java Virtual Machine 
+							&gt;= v1.3. To see which version you have, type "java -version" in a commandline window</li>
+					<li><a href="http://sourceforge.net/project/showfiles.php?group_id=92192">[Download]</a> the latest 
+							release (make sure to choose the right platform) as a *.zip file and extract it to your 
+							audio apps plugins folder. e.g. /VSTPlugins in Cubase. or /Library/Audio/Plug-ins/VST on Mac OSX</li>
+					<li>Start your audio app and enjoy the JayDLay demo plugin :-)</li>
+					<li>If you want to use jVSTwRapper plugins in a LADSPA host, simply symlink 
+						jvstwrapper.so / libjvstwrapper.jnilib / jvstwrapper.dll to the directory  
+							where your LADSPA plug-ins are installed (e.g. /usr/lib/ladspa on linux, 
+							~/Library/Audio/Plug-Ins/LADSPA or /Library/Audio/Plug-Ins/LADSPA on Mac OSX or the /plug-ins folder 
+							of your LADSPA capable app (e.g. Audacity) on windows)</li>
+					<li>Audio Unit (AU) support is documented <a href="#au">[here]</a></li>
+				</ul>
+
+
+				<h3>TIPS</h3>
+				<ul>
+					<li><b>Cubase5 users:</b> Please activate "active in background" under "options" in the menue.</li>
+					<li><font color="red"><b>Cubase SX users:</b> Please DEACTIVATE "Plug-in Editors Always on Top" under 
+							File->Preferences->VST->Plug-ins in the menu.</font></li>
+					<li>You may also want to take a look at the .ini file to enable the 3 Demo plugins - 1 
+							effect and 2 virtual synthesizers - that now ship with the download.</li>
+					<li><font color="red"><b>In some very rare cases</b> the host crashes when loading the Java GUI. 
+							If thats your case, disable the Java GUI</b> by removing (or commenting it out using "#") 
+              the PluginUIClass value from your plug-ins .ini file</font></li>
+					<li><b>Have a look at jvstwrapper.ini AND README.html</b> They contain all the 
+							information you need to get started.</li>
+					<li><b>Never ever! call System.exit() or use EXIT_ON_CLOSE in .setDefaultCloseOperation() 
+							in your GUI.</b> This exits the JVM and all Java plugins currently running. It also very 
+							likely crashes the Host application itself</li>
+					<li>If you experience any problems, please do not hesitate to ask around in the  
+						<a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a></li>
+				</ul>
+
+
+				<h3 id="screenshots">SCREENSHOTS</h3>
+				Windows
+				<table border="0">
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/manyinstances.jpg" target="_blank">
+								<img border="0" alt="Various instances of the 3 Demo Plugins (using the Napkin Look and Feel) hosted by VSTHost on Windows" 
+								src="http://jvstwrapper.sourceforge.net/images/t_manyinstances.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/manyinstances.jpg" target="_blank">
+							Various instances of the 3 Demo Plugins (using the Napkin Look and Feel) hosted by VSTHost on Windows</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/traction_win.jpg" target="_blank">
+								<img border="0" alt="All 3 Demo Plugs (JayDLay, JayVSTxSynth and DreiNullDrei) hosted by Traction on Windows" 
+								src="http://jvstwrapper.sourceforge.net/images/t_traction_win.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/traction_win.jpg" target="_blank">
+							All 3 Demo Plugs (JayDLay, JayVSTxSynth and DreiNullDrei) hosted by Traction on Windows</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/cubase_sx_win.jpg" target="_blank">
+								<img border="0" alt="All 3 Demo Plugs (2x JayDLay, 1x JayVSTxSynth and 1x DreiNullDrei) hosted by CubaseSX on Windows" 
+								src="http://jvstwrapper.sourceforge.net/images/t_cubase_sx_win.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/cubase_sx_win.jpg" target="_blank">
+							All 3 Demo Plugs (2x JayDLay, 1x JayVSTxSynth and 1x DreiNullDrei) hosted by CubaseSX on Windows</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/DreiNullDreiGUI.jpg" target="_blank">
+								<img border="0" alt="DreiNullDrei demo synth hosted by VSTHost on Windows" 
+								src="http://jvstwrapper.sourceforge.net/images/t_DreiNullDreiGUI.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/DreiNullDreiGUI.jpg" target="_blank">
+							DreiNullDrei demo synth hosted by VSTHost on Windows</a></td>
+					</tr>
+				</table>
+
+				<br />
+					Mac OSX
+				<table border="0">
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/aulab.jpg" target="_blank">
+								<img border="0" alt="Four instances of JayDLay hosted by Melodyne on Mac OSX" 
+								src="http://jvstwrapper.sourceforge.net/images/t_aulab.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/aulab.jpg" target="_blank">
+							Multiple instances of the demo plugins as Audio Unit (AU) in AU Lab on Mac OSX</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/live_multi_au.jpg" target="_blank">
+								<img border="0" alt="Multiple instances of all three demo plugins under Live 7, MAC OSX" 
+								src="http://jvstwrapper.sourceforge.net/images/t_live_multi_au.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/live_multi_au.jpg" target="_blank">
+							Multiple instances of all three demo plugins (running as AU and VST plugin at the same time) under Live 7, MAC OSX</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/melodyne_mixed.jpg" target="_blank">
+								<img border="0" alt="Various instances of the three demo plugins under Tracktion 3, Mac OSX" 
+								src="http://jvstwrapper.sourceforge.net/images/t_melodyne_mixed.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/melodyne_mixed.jpg" target="_blank">
+							The JayDLay demo plugin in multiple instances (running as AU and VST plugin) under Melodyne, Mac OSX</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/tracktion3.jpg" target="_blank">
+								<img border="0" alt="Various instances of the three demo plugins under Tracktion 3, Mac OSX" 
+								src="http://jvstwrapper.sourceforge.net/images/t_tracktion3.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/tracktion3.jpg" target="_blank">
+							Various instances of the three demo plugins under Tracktion 3, Mac OSX</a></td>
+					</tr>
+				</table>
+
+				<br />
+					Linux
+				<table border="0">
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/Jost.jpg" target="_blank">
+								<img border="0" alt="All three example plugins hosted by Jost on Linux" 
+								src="http://jvstwrapper.sourceforge.net/images/t_Jost.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/Jost.jpg" target="_blank">
+							All three example plugins hosted by Jost on Linux</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/energyXT2.jpg" target="_blank">
+								<img border="0" alt="2x DreiNullDrei, 1x VSTxSynth and 3x JayDLay in energyXT2 on Linux" 
+								src="http://jvstwrapper.sourceforge.net/images/t_energyXT2.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/energyXT2.jpg" target="_blank">
+							2x DreiNullDrei, 1x VSTxSynth and 3x JayDLay in energyXT2 on Linux</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/ardour.jpg" target="_blank">
+								<img border="0" alt="5x JayDLay using jVSTwRapper as LADSPA plugin in Ardour" 
+								src="http://jvstwrapper.sourceforge.net/images/t_ardour.jpg" /></a></td>
+						<td><a href="http://jvstwrapper.sourceforge.net/images/ardour.jpg" target="_blank">
+							5x JayDLay using jVSTwRapper as LADSPA plugin in Ardour</a></td>
+					</tr>
+				</table>
+				<p>
+					<a href="http://jvstwrapper.sourceforge.net/images/screenshots/?C=M;O=D" target="_blank">[More screenshots...]</a><br />
+					<br/>
+					<a href="#main">[top]</a>
+				</p>
+
+				<h3 id="usage">VST</h3>
+				jVSTwRapper makes Java VST development as easy as possible. Just copy and rename the 
+				jVSTwRapper.dll to the name of your plugin (e.g. MyPlugin.dll). On the Mac you can also use any 
+				name but <b>make sure</b> you leave the .jnilib extension. Also, <b>edit the Info.plist to reflect 
+				the new executable name</b>. The name of the wrapper dll will be displayed as your plugin name in 
+				the audio app. <b>MAKE SURE</b> to rename the jVSTwRapper.ini to the same name as the dll 
+				e.g MyPlugin.ini. Then edit the properties of the .ini file to fit to your 
+				Plugins class name, classpath, etc.<br />
+				<br />
+				<b>If you want to disable the custom UI and use the default UI rendered by the host, simply 
+				comment out (prefix with #) the PluginUIClass property from the .ini file</b><br />
+				<br />
+        To see how development works on the java side, please see the sources of the demo plugins. 
+				And if there are still questions left, leave a message at the 
+				<a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a>.<br />
+				<br />
+        For documentation please use the javadoc which comes with the download. 
+				It is also a good idea to download Steinbergs well documented VST 
+				<a href="http://www.steinberg.de/324+M52087573ab0.html">[SDK]</a>, the method names are 
+				the same on the java side. Also, the old VST SDK 2.0 specification contains some really 
+				good information to get started with VST. You can download it from 
+				<a href="http://jvstwrapper.sourceforge.net/vst20spec.pdf">[here]</a>.<br />
+				<a href="#main">[top]</a>
+
+
+				<h3 id="ladspa">LADSPA</h3>
+				jVSTwRapper exposes all plugins as VST and LADSPA at the same time. No additional coding or 
+				configuration is required. All LADSPA calls are simply translated to corresponding calls of the 
+				VST specification. Please note that the LADSPA specification is very basic, it therefore 
+				only covers effect plugins (no synthesizers possible) and also lacks support of customs GUIs. 
+				<br /><br />
+				If your plugin is of category synthesizer, it wont be available as a LADSPA plugin. That is the 
+				reason why of all 3 demo plugins that come with the download, only JayDLay is available via both, LADSPA and 
+				VST. JayVSTxSynth and DreiNullDrei are both synthesizers and therefore not available via LADSPA (A LADSPA 
+				host will simply ignore these plugins, you will also find an appropriate error message in the _log.txt file) 
+				Also, the GUI of a LADSPA effect plugin is always rendered by the host application. This is why it may look different 
+				on each host application you use it. 
+				Please ask the <a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a> if 
+				you encounter any problems. 
+				<br />
+				<a href="#main">[top]</a>
+
+				
+				<h3 id="au">Audio Unit (AU)</h3>
+				As of jVSTwRapper v0.9g, Audio Unit (AU) is supported via an integration with 
+				<a href="http://code.google.com/p/vstau/">[VSTAU]</a>. Seth, the author of VSTAU 
+				kindly allows us to redistribute a binary version of his project with the 
+				jVSTwRapper download (the sources of the jVSTwRapper patch can be 
+				found <a href="http://jvstwrapper.cvs.sourceforge.net/jvstwrapper/jvst_native/src/VSTAU.patch?view=log">[here]</a>). 
+				To use your jVSTwRapper plugin as an Audio Unit (AU) plugin, follow these steps:
+				
+				<ol>
+					<li>Install (i.e. copy the bundle) your jVSTwRapper VST plugin 
+						to /Library/Audio/Plug-Ins/VST/ or ~/Library/Audio/Plug-Ins/VST/</li>
+					<li>Start the "VSTAU Manager" application, find your plugin in the list and click "install". 
+						This will create a wrapper AU plugin for the selected VST plug.</li> 
+					<li>You can find the created AU plugin -- named "YourOriginalVSTPluginName (VSTAU)" -- 
+						in ~/Library/Audio/Plug-Ins/Components/ </li>
+					<li>To distribute your plugin as AU, you need to <b>*** SHIP THE VST VERSION AS WELL ***</b> 
+						-- the AU version is a wrapper that loads the VST version when started. 
+						So, to distribute your plugin add both, the VST and the AU version 
+						to a single archive to download. To install from this archive, simply copy both bundles to the 
+						folders /VST or /Components in either /Library/Audio/Plug-Ins/ or ~/Library/Audio/Plug-Ins/ (I.e. 
+						the .component bundle goes to either /Library/Audio/Plug-Ins/Components/ or 
+						~/Library/Audio/Plug-Ins/Components/ and the .vst bundle goes to /Library/Audio/Plug-Ins/VST/ or 
+						~/Library/Audio/Plug-Ins/VST/. You can freely choose between both folders.)</li>
+				</ol>
+				
+				Please ask the <a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a> if 
+				you encounter any problems. 
+				<br />
+				<a href="#main">[top]</a>
+				
+				
+				<h3 id="javafx">JavaFX Plugin GUI</h3>
+				<p>Recently, I worked on a proof of concept VST plugin GUI that uses JavaFX instead of Java Swing (which is the default way to 
+				make VST plugin GUIs in jVSTwRapper, see the example VST plugins for details). 
+				I case you wonder why: <a href="http://www.javafx.com/">JavaFX</a> is basically an attempt to 
+				compete with Adobes Flash to create rich internet apps for the browser. However, it runs on top of the JVM and thus integrates 
+				almost seamlessly with Java. Although it is a completely new programming language, or more precisely a scripting language 
+				(support for dynamic typing, expressions as params and all the other neat stuff a modern language needs these days) 
+				that was explicitly made to create GUIs in a very clean and effective way (unlike Swing ...). Over at 
+				<a href="http://javafx.com/samples/">http://javafx.com/samples/</a> are some nice examples you can directly try and 
+				run in the browser (or drag them out -- very cool IMHO). Also, have a look at the sources, the code looks very 
+				clean and efficient, you can do stuff in 1 line where you literally needed 10 with traditional Swing for example.
+				</p>
+				<p>
+				Moreover, JavaFX makes the perfect language to write VST plugin GUIs as there is a "Production Suite" that offers plugins 
+				for Photoshop and Illustrator to directly export graphics to be used within JavaFX. They call it 
+				"A suite of tools and plugins that enables a collaborative workflow between designers and developers. 
+				Designers use familiar tools to exchange visual assets with developers building JavaFX applications." 
+				Isnt that just exactly what happens when you write VST GUIs?
+				</p>
+				<p>
+				Since there is good JavaFX support in NetBeans, I created a separate example project for 6.5 with JavaFX SDK 1.0 that includes 
+				two demo JavaFX GUIs so that you can see how integration with the rest of jVSTwRapper works. NetBeans with JavaFX support 
+				and the JavaFX SDK can be downloaded from <a href="http://javafx.com/downloads/">http://javafx.com/downloads/</a>. Once downloaded 
+				and installed, you can checkout the JavaFX VST GUI example project from the jVSTwRapper cvs as follows: 
+				</p>
+				<p>
+				<code>
+				cvs -d:pserver:anonymous@jvstwrapper.cvs.sourceforge.net:/cvsroot/jvstwrapper login <br/>
+				cvs -z3 -d:pserver:anonymous@jvstwrapper.cvs.sourceforge.net:/cvsroot/jvstwrapper co -P JavaFXExamples
+				</code>
+				</p>
+				<p>
+				Please ask around in the <a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a> if 
+				you encounter any problems. 
+				<br />
+				<a href="#main">[top]</a>
+				</p>
+				
+				
+				<h3 id="multi">CREATING A MULTI-PLATFORM VERSION OF YOUR PLUGIN</h3>
+				jVSTwRapper is currently available for Windows, Linux and Mac OSX. As VST plugins are native 
+				libraries on these platforms, jVSTwRapper provides a native stub (.dll, .so or .jnilib file) 
+				that interacts with the java part of the plugin. So, in order to create 
+				a version for another platform, download the appropriate jVSTwRapper.zip (that contains 
+				a native stub file for a specific platform) from the download page, uncompress 
+				the .zip file and replace jVSTeXamples.jar with the .jar file of your plugin. Then edit the .ini file 
+				so that your plugin instead of the jVSTwRapper default plugin is loaded. Make sure to keep the directory structure 
+				from the .zip file, as some platforms (such as Mac OSX) expect a VST plugin to have a specific directory structure. 
+				Thats all, its only a matter of copying some files, no recompilation or dealing with any platform 
+				specific APIs is required. You should now be able to load your plugin in your favourite host application. 
+				<br/>
+				<br/>
+				To ease this process, you can automate these steps by installing <a href="http://maven.apache.org/">[maven]</a> and using 
+				the example <a href="http://jvstwrapper.cvs.sourceforge.net/jvstwrapper/jvst_examples/dist/pom.xml?view=markup">[pom.xml]</a> from the 
+				project CVS as a start for your plugin. Simply checkout the jvst_examples module
+				<br/><br/>
+				<code>
+				cvs -d:pserver:anonymous@jvstwrapper.cvs.sourceforge.net:/cvsroot/jvstwrapper login <br/>
+				cvs -z3 -d:pserver:anonymous@jvstwrapper.cvs.sourceforge.net:/cvsroot/jvstwrapper co -P jvst_examples
+				</code>
+				<br/><br/>
+				then download the latest jVSTwRapper binaries from the 
+				<a href="http://sourceforge.net/project/showfiles.php?group_id=92192">[download]</a> page and 
+				extract them to their corresponding location under the 'dist' directory. 
+				<br/><br/>
+				<b>NOTE:</b> please follow the instructions of the HOW_TO.txt files in the directories dist/linux, dist/win and dist/osx. 
+				<br/>
+				<br/>
+				A simple
+				<br/><br/>				
+				<code>
+				cd jvst_examples/dist <br/>
+				mvn assembly:assembly
+				</code>
+				<br/><br/>
+				is then enough to create 3 zip files (in directory 'target') containing a version of the JayDLay 
+				example plugin for Windows, Mac OSX and Linux. 
+				<br /><br />
+				Since we use <a href="http://maven.apache.org/">[maven]</a>, again all 3 platforms are supported to carry out these steps. 
+				<br/>				
+				<a href="#main">[top]</a>
+
+				
+				<h3 id="performance">PERFORMANCE</h3>
+				Performance is a critical thing, especially in realtime applications. And I can say I 
+				was really impressed how well the wrapper performs in comparison to native c++ plugins. 
+				But first, some more words on performance in general: We can split this issue into 2 categories: 
+				The <b>jni</b> and the <b>jvm performance</b>.<br />
+				<br />
+        The <b>JNI performance</b> isnt very important for the overall performance because this is a 
+				constant value added to any call done via JNI. And on todays fast cpus this value gets smaller 
+				and smaller. Of course, JNI calls bring an extra overhead, but the wrapper tries to minimize it 
+				whenever possible by using in-memory caches.<br />
+				<br />
+        What we can see now is that the beast here really is the <b>jvm performance</b>. And surprisingly, 
+				this isnt a problem at all, as the articles linked below proove impressively.<br />
+				<a href="http://www.idiom.com/~zilla/Computer/javaCbenchmark.html">[Java performance]</a><br />
+				<a href="http://www.osnews.com/story.php?news_id=5602&amp;page=3">[Java numbercrunch performance]</a><br />
+				<br />
+        So, in theory, we should only see a small (and constant) difference between native and java plugins. 
+				And this is exactly what I saw in my tests. I compared the DelayEditGUI example (C++) from 
+				Steinbergs VST-SDK and my java port of it (JayDLay). They use exactly the same processing algorithm. 
+				On my PII-450 (WinXP, J2SDK1.4.1) the Wavelab performance monitor shows 3% cpu usage with the native, 
+				and 4% with the java version. <b>The difference is about 1% (on a PII-450).</b>Try it by yourself. 
+				Download the VST SDK linked below and jVSTwRapper from the download page. The JayDLay plugin is the 
+				default plugin. Just unzip the donwload to your plugin directory, start your audio app and see the 
+				difference. <a href="#main">[top]</a>
+
+
+				<h3>TESTED HOST APPLICATIONS</h3>
+				Below is a list of host applications that I tested and can confirm that they work with 
+				jVSTwRapper. Please keep in mind that this is only the list of my hosts. jVSTwRapper should 
+				work with ANY host application that conforms to the VST, AU or LADSPA specification. If you have 
+				any problems with a particular application, please report it to the 
+				<a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a>.<br />
+				<br />
+				<b>Hosts on Mac OSX (VST / AU / LADSPA):</b>
+				<ul>
+					<li>Ableton Live (using jVSTwRapper as VST and AU plugin)</li>
+					<li>Melodyne (using jVSTwRapper as VST and AU plugin)</li>
+					<li>Logic (using jVSTwRapper as AU plugin)</li>
+					<li>Traction</li>
+					<li>Garage Band (using jVSTwRapper as AU plugin)</li>
+					<li>AU Lab (using jVSTwRapper as AU plugin)</li>
+					<li>LUNA</li>
+					<li>Mu.Lab</li>
+					<li>Amadeus II</li>
+					<li>Amadeus Pro</li>
+					<li>Plogue Bidule</li>
+					<li>Spark XL</li>
+					<li>Audacity (using jVSTwRapper as LADSPA plugin)</li>
+					<li>Any host based on the Max/MSP runtime, e.g.: The Ugly VSTi Interface, VST Shell X, ...</li>
+					<li>VSTi Host (this one uses Max/MSP Java (MXJ) and spawns a JVM --&gt; simply put a copy of 
+				jVSTsYstem_bin.jar into the folder: "/Applications/VSTi Host/VSTi Host.app/support/java/lib")</li>
+					<li>MissWatson</li>
+					<li>minihost</li>
+				</ul>
+
+
+				<b>Hosts on Windows (VST / LADSPA):</b>
+				<ul>
+					<li>All versions of Cubase and Cubase SX</li>
+					<li>WaveLab</li>
+					<li>Ableton Live</li>
+					<li>Logic</li>
+					<li>Acid</li>
+					<li>Samplitude</li>
+					<li>Traction</li>
+					<li>Energy XT and Energy XT2</li>
+					<li>FL Studio</li>
+					<li>Melodyne</li>
+					<li>Sonar</li>
+					<li>Chainer</li>
+					<li>AudioMulch</li>
+					<li>Podium</li>
+					<li>Orion Platinum</li>
+					<li>VSTHost</li>
+					<li>Tobybear Minihost</li>
+					<li>Cantabile</li>
+					<li>Tunafish</li>
+					<li>Audacity (jVSTwRapper as LADSPA plugin)</li>
+					<li>M-Audio Torq with the Xponent hardware</li>
+					<li>Samplitude</li>
+					<li>REAPER (Note: This is the first host I found that has a problem with our java GUI --&gt; disable 
+							the custom GUI or set AttachToNativeWindow=0 in the .ini file)</li>
+					<li>Sony Sound Forge Audio Studio (Note: On display problems, set AttachToNativeWindow=0 in the .ini)</li>
+					<li>Adobe Audition (Note: This host doesnt support VST instruments (VSTi), also, only stereo 
+							(exactly 2 inputs, 2 outputs) plugins are supported. Please see 
+						<a href="http://sourceforge.net/forum/forum.php?thread_id=1770471&amp;forum_id=318265">[this]</a> 
+							discussion for details.)</li>
+				</ul>
+
+
+				<b>Hosts on Linux (VST / LADSPA):</b>
+				<ul>
+					<li>Jost</li>
+					<li>energyXT2</li>
+					<li>Renoise</li>
+					<li>Qtractor</li>
+					<li>Ardour (using jVSTwRapper as LADSPA plugin)</li>
+					<li>Audacity (using jVSTwRapper as LADSPA plugin)</li>
+					<li>Muse (using jVSTwRapper as LADSPA plugin)</li>
+					<li>Rezound (using jVSTwRapper as LADSPA plugin)</li>
+				</ul>
+				<br />
+
+
+				<h3>HOW TO BUILD FROM THE SOURCES</h3>
+				Just do an anon cvs 
+				checkout of the cvs head and make sure to register at steinberg and download the current 
+				vst sdk <a href="http://www.steinberg.de/324+M52087573ab0.html">[http://www.steinberg.de/324+M52087573ab0.html]</a><br />
+        Here are the links to <a href="http://jvstwrapper.cvs.sourceforge.net/jvstwrapper/">[browse]</a> 
+				the sources or anonymous cvs <a href="http://sourceforge.net/cvs/?group_id=92192">[checkout]</a>. 
+				<a href="#main">[top]</a>
+
+				<h3 id="debugging">DEBUGGING OF YOUR PLUGIN</h3>
+				jVSTwRapper makes it very convenient to debug your vst plugin while running inside the host 
+				application. Take a look at the .ini file, read the documentation there and uncomment the 
+				jvm options for debugging. Then use a remote debug client, e.g. the one that comes with 
+				<a href="http://www.eclipse.org">[ecplipse]</a> to debug and step through your running 
+				plugin. <a href="#main">[top]</a>
+
+				
+				<h3>IF GARBAGE COLLECTION REALLY IS A PROBLEM FOR YOUR PLUGIN</h3>
+				Consider switching the class-GC off (-Xnoclassgc on a SUN VM) and/or use 
+				<a href="http://www.javolution.org/">[javolutions]</a> concept of object recycling. 
+				Also, consider switching to the concurrent collector (Enabled using -XX:+UseConcMarkSweepGC) 
+				or incremental collector (Enabled using -Xincgc). BEFORE YOU APPLY THESE SWITCHES, profile 
+				your jvm and BE CERTAIN, that gc really is the problem. 
+				<br/>
+				<b>This information here is just 
+				for your reference. In my 3+ years of java vst plugin development (and from all the feedback 
+				I have received so far) - gc never caused any audio clicks or cracks. I always found the 
+				problem to be somewhere in the processing algorithm.</b> 
+				<br/>
+				Generally, you shouldnt create ANY 
+				objects within any of the process* methods (DONT use the <i>new</i> operator there) because 
+				these are called VERY often. <a href="#main">[top]</a>
+
+
+				<h3>PROJECT URL</h3>
+				<a href="http://www.sourceforge.net/projects/jvstwrapper/">[http://www.sourceforge.net/projects/jvstwrapper/]</a>
+
+				<h3 id="download">DOWNLOAD</h3>
+				<a href="http://sourceforge.net/project/showfiles.php?group_id=92192">[http://sourceforge.net/project/showfiles.php?group_id=92192]</a> 
+
+
+				<h3 id="status">STATUS</h3>
+				Currently the wrapper supports the full vst 2.4 specification and works stable on all major vst 
+				hosts. The only thing left out from the 2.3 spec is some surround stuff. If there is demand 
+				for it Ill implement it, just let me know if youre interested. If any of you test the wrapper 
+				with other audio applications, please report to the 
+				<a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a> if it works. <br /> 
+				<a href="#main">[top]</a>
+
+
+				<h3 id="future">FUTURE WORK / KNOWN ISSUES</h3>
+				There are a few things I would like to implement and I would love to have some help from the open-source 
+				community. So if you find any of the things below interesting and would like to contribute, 
+				please let me <a href="#contact">[know]</a>. 
+				<ul>
+					<li><b>Mac OSX GUI refinement:</b> Mac OSX java GUIs work great when using JRE 1.5.0_06 (Mac OSX >= 10.4.8) and above, 
+							but in a separate window. 
+							It would be nice to let AWT draw into the native window provided by the host application (like it works already in the 
+							windows and linux versions). I am trying my best, but this Carbon/Cocoa/Java integration 
+							is quite a challenge. If you have some knowledge in these areas or feel challenged by this task, 
+							please let me know. Note: since OSX 10.5 (Leopard), there is the 
+							<a href="http://developer.apple.com/samplecode/JavaFrameEmbeddingDemo/">[JavaFrameEmbedding framework]</a>, 
+							this should make things a lot easier.</li>
+					<li><b>Linux Java GUI integration:</b> VST plugin GUI handling differs a lot between Linux VST host applications. Currently, 
+							it seems that only Jost and Renoise do everything in a correct way. If you are using those, 
+							you can safely set "AttachToNativePluginWindow" to 1 in the .ini. Other host applications (such as energyXT2)
+							might have display problems. You should use "AttachToNativePluginWindow=0" here instead (default). 
+							Any patches are highly appreciated.</li>
+					<li><b>DSSI integration:</b> LADSPA works already, but for effect plugins only... DSSI would be the next step for 
+							the linux version of the wrapper. There are already some open-source projects (vstserver, dssi-vst) that could serve as 
+							a basis for this task. So this shouldnt be that much of work. If you would like to contribute in this 
+							area, please le me know</li>
+					<li><b>AU wrapper stability:</b> Recent reports with version v0.9g indicate some stability problems with the AU wrapper (VSTAU) on Mac OSX, 
+							especially with MIDI functionality. Also, VSTAUManager seems to crash when the Kore.vst plugin is present. 
+							In some other case, the GUI caused problems with VSTAU, so, if you experience crashes with the AU wrapper, 
+							please test without GUI enabled (comment out PluginUIClass in the .ini). In any case, please report problems to the forum.
+							<br/><font color="red"><b>Update:</b></font> A new version of VSTAU seems to fix the MIDI problems. 
+							Please download the latest version from <a href="http://code.google.com/p/vstau/downloads/list">[here]</a> 
+							and replace VSTAUManager.app that came with the jVSTwRapper download with the new version. 
+							Then, re-wrap your jVST plugin (click "uninstall", then "install").</li>
+				</ul>
+
+
+				<h3 id="other">jVSTwRapper (AND OTHER JAVA/VST RELATED) PROJECTS</h3>
+				
+        <a href="http://github.com/thbar/opaz-plugdk">[Opaz PlugDK]</a><br />
+				Opaz PlugDK is an experiment that allows to develop VST Plug-ins using the Ruby language (via JRuby). 
+        It comes with very nice features bringing the 
+        "scripting" approach to VST development. The plugin reloads instantly when a file is changed, e.g. 
+        code changes are audible immediately. Absolutely no compile-package-test cycles necessary! It 
+        also comes with an IRB console that allows you to attach 
+        to a running Ruby plug-in, e.g. to script the plugin live while it is running (very much like 
+        using Ruby as a macro language for the plug-in). 
+        Moreover, it wraps the VST API in a very nice DSL, making the code much cleaner and understandable. 
+        For increased performance, it is very easy to mix-and-match Java and Ruby code. It also comes with Rake tasks 
+        that bundle your plugin for windows, mac and linux righ-away. If you like to read more about the project, please click 
+        <a href="http://blog.logeek.fr/2009/11/17/how-to-prototype-vst-audio-plugins-with-jruby-and-java">[here]</a> 
+        or go directly to its <a href="http://github.com/thbar/opaz-plugdk">[github]</a> page. 
+				<br />
+				<br />	
+        
+				<a href="http://software.bitwaves.de/MusicBeam.html">[MusicBeam]</a><br />
+				"MusicBeam is an AU/VST plugin for online music collaboration.
+				By using MusicBeam users can automatically exchange what they recorded in 
+				their sequencer and hear everyone elses tracks in sync to their own sequencer.
+				No more bouncing, compressing and emailing your tracks to your bandmates! 
+				MusicBeam does it all for you, in near-real-time. It even works across sequencers 
+				and platforms by using the platform independent Java technology" - 
+				Watch the video <a href="http://www.youtube.com/watch?v=DMe7wYwsjjE">[here]</a> for more info. 
+				<br />
+				<br />	
+						
+				<a href="http://zweeger.parkingb.be/">[Zweeger - The Automation Toolkit]</a><br />
+				Zweeger is a modular extended MIDI filter and generator. It works as a standalone tool or as a VST effect. 
+				It can be placed between any MIDI input, such as keyboards, and any tool that can be controlled by MIDI messages 
+				(effects, samplers, hardware, software...) It can also work without any input as a "simple" generator.
+				Zweeger is composed of various elements, such as LFO, envelops, random curves, delays, note generators, ... 
+				All of them can be chained in various ways, synchronized on the tempo.
+				If you are fed up with drawing automation curves, turning knobs repeatedly or if you need a third hand, 
+				Zweeger is the tool you need.
+				<br />
+				<br />
+				
+				<a href="http://oscvstbridge.sourceforge.net/">[OscVstBridge]</a><br />
+				"OscVstBridge is a VST plugin that, as the name implies, bridges VST data to the <a href="http://opensoundcontrol.org/">Open Sound 
+				Control [OSC]</a> network domain.
+				VST plugins typically have parameters that are controllable by the user. These parameters appear as 
+				the knobs and sliders or as MIDI CC. By using OscVstBridge you can control via your midi controller 
+				or VST sequencer OSC devices that are networked to the controlling computer. Similarly OSC controllers 
+				can send messages to OscVstBridge that will convert it to VST parameter or MIDI data.
+				By combining the above two setups, VST data or MIDI data can be transported between networked 
+				computers. This achieves the same purpose as MIDI over IP systems except that OSC is used as the 
+				musical data protocol over the IP network."
+				<br />
+				<br />
+				
+				<a href="http://jvaptools.sourceforge.net/">[JVAPTools]</a><br />
+				JVAPTools is a library and examples for rapid vst-audio-plugin development with Java, based on jVSTwRapper.<br />
+				The very nice <a href="http://jvaptools.sourceforge.net/scripteffect.html">[ScriptEffect]</a> 
+				Plug-in (also Java VST) that is part of this package allows you to use a scripting language 
+				to prototype audio algorithms. Download it from 
+				<a href="http://sourceforge.net/project/showfiles.php?group_id=162495">[here]</a><br />
+				<br />
+
+				<a href="http://github.com/mhroth/jvsthost/tree/master">[JVstHost]</a><br />
+				"JVstHost is an open-source Java-based VST host for Linux, Mac, and Windows. It aims to load and manipulate all audio 
+				plugins conforming to the Steinberg VST standard, including those generated with jVSTwRapper and Faust."<br />
+				<br />
+	
+				[Liquinth a28]<br />
+				A polyphonic synthesizer based on jVSTwRapper. Martin kindly donated his code to the jVSTwRapper project as 
+				another demo synth (thanks a lot!). It is now available via the project 
+				<a href="http://jvstwrapper.cvs.sourceforge.net/jvstwrapper/">[cvs]</a> and also included in the 
+				jVSTeXamples.jar binary that ships with the download. <br />
+				<br />
+				<br />
+	
+				<a href="http://icjvst.sourceforge.net/?page=home">[IC.J.VST]</a><br />
+				"Intra-Actively Communicating Java VST", a framework on top of jVSTwRapper that allows 
+				"plugin instances to exchange data during runtime, for instance to react to each other 
+				and adjust to whatever is going on in all tracks of the entire mix" - definitely worth a look, especially if 
+				you plan to create vst plugins that interact with each other. 6 plugins already available!<br />
+				<br />
+				
+				<a href="http://mars.pingdynasty.com/software.oml">[Pong]</a><br />
+				"pong goes beyond the realm of automatic compositions to find a musical creativity expressed 
+				within a simple computer game. It is an implementation of the pong game that works as a 
+				MIDI instrument. It produces music as you play the game, based on your actions in the game." 
+				Download the Pong VST plugin based on jVSTwRapper <a href="http://mars.pingdynasty.com/software.oml">[here]</a>, 
+				or play the game online...<br />
+				<br />
+											
+				<a href="http://code.google.com/p/b0rx0r/">[b0rx0r]</a><br />
+				"coming soon... very alpha at the moment :)"
+				<br />
+				<br />	
+					
+				<a href="http://web.archive.org/web/20050414083353/http://sourceforge.net/projects/jvst/">[JaVaStYle]</a><br/>
+				If you came here to learn more about java and vst, you may also want to take a look at the 
+				<a href="http://web.archive.org/web/20050414083353/http://sourceforge.net/projects/jvst/">[JaVaStYle]</a> 
+				Project. This project does exactly the opposite of jVSTwRapper. It is a library that allows you to 
+				HOST (native) vst plugins. Except of the wrapping code, this library is also completely written 
+				in java - of course. It might be fun to see a jVSTwRapper plugin hosted by JaVaStYle. Just to 
+				see if both of the wrapping layers are compatible to each other. If anybody of you already 
+				successfully managed to do that, please let me know.<br />
+				<b>UPDATE:</b> This project disappeared from Sourceforge because of long time of inactivity. You can 
+				access the <b>LGPL</b> code from <a href="http://jvstwrapper.cvs.sourceforge.net/jvstwrapper/JaVaSTyle/">[here]</a>. 
+				I can NOT answer any questions regarding this code, this is just for the interested since I 
+				occasionally receive some requests about it.<br />
+				<b>UPDATE 2:</b> JVstHost is out! Consider using this project to host VST plugins in Java-based audio host applications 
+				instead (link and more info <a href="http://github.com/mhroth/jvsthost/tree/master">[here]</a>).<br />
+				<br />
+
+				<a href="http://code.google.com/p/vstau/">[VSTAU]</a><br />
+				"This application creates wrappers for your VST plug-ins that will make them available as 
+				Audio Units in programs like Logic Pro and GarageBand." - jVSTwRapper uses this 
+				project to provide Audio Unit (AU) compatibility, <a href="#au">[here]</a> is more info.
+				<br /><a href="#main">[top]</a><br />
+				<br />
+				
+				<a href="http://www.beadsproject.net/">[beads]</a><br />
+				"Beads is an open-source project for computer music and sonic art in
+        realtime performance, installation artworks, web content, and anywhere
+        else you can think of putting it." It is written in Java and comes with <a href="http://processing.org/">[processing]</a> 
+        intergration. Check it out!
+				<br /><a href="#main">[top]</a>
+        
+        
+        
+				<h3 id="contact">CONTACT</h3>
+				Please use the <a href="http://sourceforge.net/forum/forum.php?forum_id=318265">[forum]</a> for questions.
+				<br />
+        Or send feedback via <img src="fb.jpg" border="0" alt="feedback" /><br />
+				<a href="#main">[top]</a><br />
+				<br />
+				<br />
+
+				<!-- Webring code -->
+				<script language="javascript" type="text/javascript" src="http://ss.webring.com/navbar?f=j;y=daniel309;u=defurl">
+				</script><noscript>
+					<center>
+						<table bgcolor="gray" cellspacing="0" border="2">
+							<tr>
+								<td>
+									<table cellpadding="2" cellspacing="0" border="0">
+										<tr>
+											<td align="center"><font face="arial" size="-1">This site is a member of WebRing.<br />
+                          To browse visit <a href="http://ss.webring.com/navbar?f=l;y=daniel309;u=defurl">Here</a>.</font></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</center></noscript> 
+
+				<!-- END CONTENT -->
+
+				<div id="footer">
+          HTML template design by Ganesh Gunasegaran from <a href="http://www.oswd.org" target="_blank">[oswd.org]</a>
+				</div>
+			</div>
+
+			<div id="lefty">
+				<div id="menu">
+					<a href="#intro">Intro</a>
+					<a href="#installation">Installation</a>
+					<a href="#screenshots">Screenshots</a>
+					<a href="#usage">VST</a>
+					<a href="#ladspa">LADSPA</a>
+					<a href="#au">Audio Unit (AU)</a>
+					<a href="#javafx">JavaFX Plugin GUI</a>
+					<a href="#multi">Multi-Platform Bundling</a>
+					<a href="http://sourceforge.net/project/showfiles.php?group_id=92192">Download</a>
+					<!--<a href="#license">License</a>-->
+					<a href="#performance">Performance</a>
+					<a href="#debugging">Debugging</a>
+					<a href="#status">Status</a>
+					<a href="#future">Known Issues</a>
+					<a href="#other">jVSTwRapper Projects</a>
+					<a href="#contact">Contact</a>
+				</div>
+
+				<p>
+					<a href="http://sourceforge.net/donate/index.php?group_id=92192">
+						<img src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" />
+					</a>
+					<br />
+					<br />
+					<a href="http://www.sourceforge.net/projects/jvstwrapper/">
+						<img src="http://sourceforge.net/sflogo.php?group_id=92192&amp;type=1" border="0" alt="SourceForge.net Logo" />
+					</a>
+				</p>
+
+				<br />
+				<br />
+				<!--
+				<p id="ads" align="center">-->
+				<!-- Google permits encouraging people to click on ads...
+					Thank you for supporting this project with a 
+					<a href="http://sourceforge.net/donate/index.php?group_id=92192">[donation]</a> or a 
+					click on the ads below: <br /><br />
+					-->
+
+				<script type="text/javascript"><!--
+					google_ad_client = "pub-7172692043450154";
+					google_ad_width = 120;
+					google_ad_height = 600;
+					google_ad_format = "120x600_as";
+					google_ad_type = "text_image";
+					google_ad_channel = "";
+					google_color_border = "FFFFFF";
+					google_color_bg = "f9f9f9";
+					google_color_link = "0000FF";
+					google_color_text = "000000";
+					google_color_url = "008000";
+					//-->
+				</script><!--
+					<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+
+				</p>-->
+				<!--
+				<p id="referal" align="center">
+				-->
+				<script type="text/javascript"><!--
+					google_ad_client = "pub-7172692043450154";
+					google_ad_width = 125;
+					google_ad_height = 125;
+					google_ad_format = "125x125_as_rimg";
+					google_cpa_choice = "CAAQweaZzgEaCA2ZyYC_NXeAKK2293M";
+					google_ad_channel = "";
+					//-->
+				</script><!--
+					<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+					
+				</p>-->
+
+			</div>
+		</div>
+
+		<!-- Google analytics code -->
+		<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+		</script>
+		<script type="text/javascript">
+		_uacct = "UA-1424792-1";
+		urchinTracker();
+		</script>
+	</body>
+</html>

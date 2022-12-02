@@ -1,0 +1,33 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {
+                install = id; 
+                installAll = id; 
+                refresh = id; 
+                uninstall = id; 
+                uninstallAll = id; 
+            }; 
+            CLASS = VMApplication; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_plugInsController" = VMPlugInsController; 
+                progressIndicator = NSProgressIndicator; 
+                progressPanel = NSPanel; 
+                statusLabel = NSTextField; 
+            }; 
+            SUPERCLASS = NSApplication; 
+        }, 
+        {
+            CLASS = VMPlugInsController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {"_delegate" = id; }; 
+            SUPERCLASS = NSArrayController; 
+        }, 
+        {CLASS = VMStatusFormatter; LANGUAGE = ObjC; SUPERCLASS = NSFormatter; }, 
+        {CLASS = VMVersionFormatter; LANGUAGE = ObjC; SUPERCLASS = NSFormatter; }
+    ); 
+    IBVersion = 1; 
+}
