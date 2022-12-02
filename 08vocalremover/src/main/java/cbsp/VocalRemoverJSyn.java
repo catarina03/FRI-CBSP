@@ -1,6 +1,7 @@
 package cbsp;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import com.jsyn.JSyn;
@@ -49,7 +50,8 @@ public class VocalRemoverJSyn {
 
 		FilterLowPass filter;
 
-		/*try {
+		// /*
+		try {
 
 			synthesizer = JSyn.createSynthesizer();
 
@@ -72,19 +74,49 @@ public class VocalRemoverJSyn {
 
 			// Copy samples from SampleLoader to dsamples, where you invert the sample values on one of the channels.
 
+			for (int i = 0; i < dsamples.length; i++){
+				float current_value = (float) sample.readDouble(i);
+				dsamplesOriginal[i] = current_value;
+				if (i % 2 == 0){
+					dsamples[i] = current_value;
+				}
+				else{
+					dsamples[i] = -current_value;
+				}
+			}
+
 			// Create new WaveRecorder.
+			try {
+				recorder = new WaveRecorder(synthesizer, outputFile);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				return;
+			}
 
 			// Create and add new LineOut to the synthesizer.
+			synthesizer.add(lineOut = new LineOut());
 
 			// Create originalSample object with new FloatSample from dsamplesOriginal.
+			originalSample = new FloatSample(dsamplesOriginal, ch);
+			originalSample.setFrameRate(fr);
 
 			// Create sample object with new FloatSample from dsamples.
+			// (?)
+			sample = new FloatSample(dsamples, ch);
+			sample.setFrameRate(fr);
 
 			// Create samplePlayer object with new VariableRateStereoReader and fill its dataQueue with sample.
+			synthesizer.add(samplePlayer = new VariableRateStereoReader());
+			samplePlayer.dataQueue.queue(sample);
+			samplePlayer.rate.set(fr);
 
 			// Create samplePlayerOriginal object with new VariableRateStereoReader and fill its dataQueue with originalSample.
+			synthesizer.add(samplePlayerOriginal = new VariableRateStereoReader());
+			samplePlayerOriginal.dataQueue.queue(originalSample);
+			samplePlayerOriginal.rate.set(fr);
 
 			// Multiply each channel of samplePlayerOriginal with 0.5 and then sum them together.
+			
 
 			// Use a FilterLowPass on the summed signal.
 
@@ -115,7 +147,8 @@ public class VocalRemoverJSyn {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}*/
+		}
+		//*/
     }
 
 	public static void main(String[] args) {
