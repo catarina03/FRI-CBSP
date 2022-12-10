@@ -5,10 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.SocketException;
-import java.net.DatagramSocket;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
+import java.net.*;
 
 public class MIDIStreamSimplePlayer extends MIDIPlayer {
 
@@ -39,16 +36,31 @@ public class MIDIStreamSimplePlayer extends MIDIPlayer {
         System.out.println("RECEIVER ST: START");
 
         // TASK 5
-
-        // Create Datagram packet.
-
-        // Wait for new packet.
-
-        // Extract the byte[] buffer.
-
-        // Deserialize the note object.
-
-        // Write current Note into buffer.
+        for(int i = 0; i<7;i++){
+            try {
+                // Create Datagram packet.
+                packet = new DatagramPacket(rcvBuffer,rcvBuffer.length, InetAddress.getByName("127.0.0.1"),receiverPort);
+            } catch (UnknownHostException e) {
+                throw new RuntimeException(e);
+            }
+            // Wait for new packet.
+            try {
+                rsocket.receive(packet);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            // Extract the byte[] buffer.
+            byte[] data = packet.getData();
+            try (ByteArrayInputStream bis = new ByteArrayInputStream(data);
+                 ObjectInputStream in = new ObjectInputStream(bis)) {
+                // Deserialize the note object.
+                Note note = (Note) in.readObject();
+                // Write current Note into buffer.
+                buffer.put(note);
+            } catch (ClassNotFoundException | InterruptedException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         System.out.println("RECEIVER ST: END");
     }
@@ -73,17 +85,36 @@ public class MIDIStreamSimplePlayer extends MIDIPlayer {
 
         // For each Note repeat:
 
-        // 	Create ByteArrayOutputStream.
+        Note[] notes = new Note[]{new Note(53,500,300),
+                new Note(53,500,300),
+                new Note(53,500,300),
+                new Note(48,500,300),
+                new Note(50,500,300),
+                new Note(50,500,300),
+                new Note(48,500,300)};
 
-        // 	Create ObjectOutputStream.
+        for(int i = 0;i<notes.length;i++){
+            try {
+                for (Note note : notes){
+                    // 	Create ByteArrayOutputStream.
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    // 	Create ObjectOutputStream.
+                    ObjectOutputStream oos = new ObjectOutputStream(bos);
+                    // 	Write Note to ObjectOutputStream.
+                    oos.writeObject(note);
+                    oos.flush();
+                    // 	Serialize the object into byte[].
+                    byte [] data = bos.toByteArray();
+                    // 	Create the DatagramPacket.
+                    DatagramPacket packet = new DatagramPacket(data,data.length, InetAddress.getByName(DEFAULT_RECEIVER_ADDRESS),DEFAULT_RECEIVER_PORT);
+                    // 	Send the DatagramPacket over the tsocket.
+                    tsocket.send(packet);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-        // 	Write Note to ObjectOutputStream.
-
-        // 	Serialize the object into byte[].
-
-        // 	Create the DatagramPacket.
-
-        // 	Send the DatagramPacket over the tsocket.
+        }
 
         System.out.println("TRANSMITTER: END");
 

@@ -23,12 +23,21 @@ public class MIDIFileSimplePlayer extends MIDIPlayer {
 
         // TASK 4
 
-        // Open the input FileInputStream.
-        //fis.
-
-        // Deserialize the input stream with ObjectInputStream.
-
-        // Write Notes from file to buffer.
+        try {
+            // Open the input FileInputStream.
+            //fis.
+            fis = new FileInputStream(filename);
+            in = new ObjectInputStream(fis);
+            // Deserialize the input stream with ObjectInputStream.
+            for(int i = 0; i <7; i++){
+                Note note_read = (Note) in.readObject();
+                buffer.put(note_read);
+            }
+            in.close();
+            fis.close();
+        } catch (IOException | ClassNotFoundException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("RECEIVER FS: END");
     }
@@ -44,31 +53,6 @@ public class MIDIFileSimplePlayer extends MIDIPlayer {
 
         // TASK 4
 
-        // Write Notes to a file ("notes.bin").
-        try {
-            fos = new FileOutputStream("notes.bin", true);
-
-            try (FileOutputStream fos = new FileOutputStream("object.dat");
-                 ObjectOutputStream oos = new ObjectOutputStream(fos))  {
-
-                // create a new user object
-                User user = new User("John Doe", "john.doe@example.com",
-                        new String[]{"Member", "Admin"}, true);
-
-                // write object to file
-                oos.writeObject(user);
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-
-            } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-        // we need to transfer this string to files
-        String st = "TATA";
-
         Note[] notes = new Note[]{new Note(53,500,300),
                 new Note(53,500,300),
                 new Note(53,500,300),
@@ -77,16 +61,18 @@ public class MIDIFileSimplePlayer extends MIDIPlayer {
                 new Note(50,500,300),
                 new Note(48,500,300)};
 
-        for (Note note : notes) {
-            // we will write the string by writing each
-            // character one by one to file
-            fos.writeObject(note);
+        try {
+            // Write Notes to a file ("notes.bin").
+            fos = new FileOutputStream("notes.bin", true);
+            out = new ObjectOutputStream(fos);
+            for (Note note : notes) {
+                out.writeObject(note);
+            }
+            out.close();
+            fos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-        // by doing fout.close() all the changes which have
-        // been made till now in RAM had been now saved to
-        // hard disk
-        fos.close();
 
         System.out.println("TRANSMITTER: END");
 

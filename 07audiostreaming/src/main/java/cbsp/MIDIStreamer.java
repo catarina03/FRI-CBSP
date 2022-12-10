@@ -40,18 +40,33 @@ public class MIDIStreamer extends Thread {
         // TASK 7
 
         // For each Note repeat:
+        Note[] notes = new Note[]{new Note(53,500,300),
+                new Note(53,500,300),
+                new Note(53,500,300),
+                new Note(48,500,300),
+                new Note(50,500,300),
+                new Note(50,500,300),
+                new Note(48,500,300)};
 
-        // 	Create ByteArrayOutputStream.
-
-        // 	Create ObjectOutputStream.
-
-        // 	Write Note to ObjectOutputStream.
-
-        // 	Serialize the object into byte[].
-
-        // 	Create the DatagramPacket.
-
-        // 	Send the DatagramPacket over the tsocket.
+        for(Note note : notes){
+            try {
+                // 	Create ByteArrayOutputStream.
+                bos = new ByteArrayOutputStream();
+                // 	Create ObjectOutputStream.
+                out = new ObjectOutputStream(bos);
+                // 	Write Note to ObjectOutputStream.
+                out.writeObject(note);
+                out.flush();
+                // 	Serialize the object into byte[].
+                sndBuffer = bos.toByteArray();
+                // 	Create the DatagramPacket.
+                packet = new DatagramPacket(sndBuffer,sndBuffer.length, InetAddress.getByName(recieverAddress),receiverPort);
+                // 	Send the DatagramPacket over the tsocket.
+                tsocket.send(packet);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         System.out.println("TRANSMITTER: END");
     }

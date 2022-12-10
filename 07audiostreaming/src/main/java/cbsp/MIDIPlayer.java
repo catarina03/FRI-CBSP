@@ -43,7 +43,7 @@ public abstract class MIDIPlayer extends Thread {
 
         this.rcv();
 
-        while (!buffer.isEmpty()) {
+        while (true) {
             // TASK 1, 2
 
             // Get the latest Note from the buffer.
