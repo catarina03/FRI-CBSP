@@ -3,6 +3,7 @@ package cbsp;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
@@ -116,23 +117,70 @@ public class VocalRemoverJSyn {
 			samplePlayerOriginal.rate.set(fr);
 
 			// Multiply each channel of samplePlayerOriginal with 0.5 and then sum them together.
-			
+			float[] array_of_halfs = dsamples;
+			Arrays.fill(array_of_halfs, 0.5F);
+			FloatSample halfs = new FloatSample(array_of_halfs);
+			halfs.setChannelsPerFrame(2);
+			VariableRateStereoReader half = new VariableRateStereoReader();
+			half.dataQueue.queue(halfs);
+			synthesizer.add(half);
+
+			synthesizer.add(mpo1 = new Multiply());
+			mpo1.inputA.connect(0,samplePlayerOriginal.output,0);
+			mpo1.inputB.connect(0,half.output,1);
+
+			synthesizer.add(mpo2 = new Multiply());
+			mpo2.inputA.connect(0,samplePlayerOriginal.output,1);
+			mpo2.inputB.connect(0,half.output,0);
+
+			synthesizer.add(mixo = new Add());
+			mixo.inputA.connect(mpo1.output);
+			mixo.inputB.connect(mpo2.output);
 
 			// Use a FilterLowPass on the summed signal.
+			synthesizer.add(filter = new FilterLowPass());
+			filter.frequency.set(cutOff);
+			mixo.output.connect(filter.input);
 
 			// Multiply each channel of samplePlayer with 0.5 and then sum them together.
+			synthesizer.add(mpi1 = new Multiply());
+			mpi1.inputA.connect(0,samplePlayer.output,0);
+			mpi1.inputB.connect(0,half.output,1);
+
+			synthesizer.add(mpi2 = new Multiply());
+			mpi2.inputA.connect(0,samplePlayer.output,1);
+			mpi2.inputB.connect(0,half.output,0);
+
+			synthesizer.add(mixi = new Add());
+			mixi.inputA.connect(mpi1.output);
+			mixi.inputB.connect(mpi2.output);
 
 			// Multiply both summed signals with 0.5 and then sum them together.
+			synthesizer.add(mpf1 = new Multiply());
+			mixi.output.connect(mpf1.inputA);
+			half.output.connect(mpf1.inputB);
+
+			synthesizer.add(mpf2 = new Multiply());
+			filter.output.connect(mpf2.inputA);
+			half.output.connect(mpf2.inputB);
+
+			synthesizer.add(mixf = new Add());
+			mixf.inputA.connect(mpf1.output);
+			mixf.inputB.connect(mpf2.output);
 
 			// Connect the output of the Add object to each channel of the LineOut.
+			mixf.output.connect(0,lineOut.input,0);
+			mixf.output.connect(0,lineOut.input,1);
 
 			// Connect the output of the Add object to each channel of the WaveRecorder.
+			mixf.output.connect(recorder.getInput());
+			mixf.output.connect(lineOut.input);
 
 			synthesizer.start();
 
-//			recorder.start();	// Uncomment for recording, when running the program.
+			recorder.start();	// Uncomment for recording, when running the program.
 
-//			lineOut.start();	// Uncomment for playing, when running the program.
+			lineOut.start();	// Uncomment for playing, when running the program.
 
 			// Play the recording. Uncomment!
 			do {
@@ -143,9 +191,7 @@ public class VocalRemoverJSyn {
 			recorder.close();
 			synthesizer.stop();
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
 		//*/
