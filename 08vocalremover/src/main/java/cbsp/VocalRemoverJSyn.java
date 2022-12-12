@@ -117,9 +117,8 @@ public class VocalRemoverJSyn {
 			samplePlayerOriginal.rate.set(fr);
 
 			// Multiply each channel of samplePlayerOriginal with 0.5 and then sum them together.
-			float[] array_of_halfs = dsamples;
-			Arrays.fill(array_of_halfs, 0.5F);
-			FloatSample halfs = new FloatSample(array_of_halfs);
+			Arrays.fill(dsamples, 0.5F);
+			FloatSample halfs = new FloatSample(dsamples);
 			halfs.setChannelsPerFrame(2);
 			VariableRateStereoReader half = new VariableRateStereoReader();
 			half.dataQueue.queue(halfs);
