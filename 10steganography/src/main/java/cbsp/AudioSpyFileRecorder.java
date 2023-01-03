@@ -1,39 +1,59 @@
 package cbsp;
 
 
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.File;
+import java.io.IOException;
+
 public class AudioSpyFileRecorder extends AudioSpyFilePlayer {
     
     public void record(String orgFilename, String spyFilename) {
     	
     	// TASK 2
-    	
+
     	// Copy the contents of original file into the spy file.
-    	
-    	// Initialize two File objects.
-    	
-    	// Get AudioInputStream from AudioSystem.
-    	
-    	// Get AudioFileFormat from AudioSystem.
-    	
-    	// Use write method of the AudioSystem to write data.
+        // Initialize two File objects.
+        File fileO = new File(orgFilename);
+        File fileS = new File(spyFilename);
+        // Get AudioInputStream from AudioSystem.
+        AudioInputStream aisO = null;
+        try {
+            aisO = AudioSystem.getAudioInputStream(fileO);
+            // Get AudioFileFormat from AudioSystem.
+            AudioFileFormat affO = null;
+            affO = AudioSystem.getAudioFileFormat(fileO);
+            // Use write method of the AudioSystem to write data.
+            AudioSystem.write(aisO, affO.getType(),fileS);
+        } catch (UnsupportedAudioFileException | IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
     
     public void steganoRecord(String orgFilename, String spyFilename, byte[] secret) {
     	
     	// TASK 2
-    	
-    	// Initialize two File objects.
-    	
-    	// Get two AudioInputStream from AudioSystem.
-    	
-    	// Get AudioFileFormat from AudioSystem.
-    	
-    	// Create new SteganoEncode object, that we will create in next task.
-    	
-    	// Encode the input stream with secret message.
-    	
-    	// Use write method of the AudioSystem to write encoded data.
+        // Initialize two File objects.
+        File fileO = new File(orgFilename);
+        File fileS = new File(spyFilename);
+        // Get two AudioInputStream from AudioSystem.
+        AudioInputStream aisO = null;
+        try {
+            aisO = AudioSystem.getAudioInputStream(fileO);
+            // Get AudioFileFormat from AudioSystem.
+            AudioFileFormat affO = AudioSystem.getAudioFileFormat(fileO);
+            // Create new SteganoEncode object, that we will create in next task.
+            SteganoEncode steganoEncode = new SteganoEncode();
+            // Encode the input stream with secret message.
+            AudioInputStream aisS = steganoEncode.encodeStream(aisO,secret);
+            // Use write method of the AudioSystem to write encoded data.
+            AudioSystem.write(aisS, affO.getType(),fileS);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     	
     }
     

@@ -2,6 +2,7 @@ package cbsp;
 
 import java.io.ByteArrayInputStream;
 import java.nio.ByteBuffer;
+import java.util.BitSet;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioFormat.Encoding;
 import javax.sound.sampled.AudioInputStream;
@@ -66,11 +67,49 @@ public class SteganoEncode {
             throw new Exception("EOF");												// Throw an exception.
         
         // TASK 3
-        
         // Take the current byte and store the secret bit into LSB and return it.
-        
         // Use bit shifting or BitSet objects.
-        
+
+        BitSet bitsetOut = new BitSet(8);
+        byte b = currentByte;
+        for (int i=0; i<8; i++)
+        {
+            if ((b & (1 << i)) > 0)
+            {
+                bitsetOut.set(i);
+            }
+        }
+        int index = 0; int tmp = cnt;
+        while(tmp>=8){
+            index++;
+            tmp=tmp-8;
+        }
+        BitSet bitsetIn = new BitSet(8);
+        if(cnt < 32){
+            ByteBuffer bb = ByteBuffer.allocate(4);
+            bb.putInt(ENCODED_SECRET_BITSIZE);
+            b = bb.array()[index];
+            for (int i = 0; i < 8; i++) {
+                if ((b & (1 << i)) > 0) {
+                    bitsetIn.set(i);
+                }
+            }
+            boolean secretBit = bitsetIn.get(tmp);
+            bitsetOut.set(7,secretBit);
+        } else {
+            b = encodedSecret[index];
+            for (int i = 0; i < 8; i++) {
+                if ((b & (1 << i)) > 0) {
+                    bitsetIn.set(i);
+                }
+            }
+            boolean secretBit = bitsetIn.get(tmp);
+            bitsetOut.set(7,secretBit);
+        }
+        currentByte = bitsetOut.toByteArray()[0];
+        cnt++;
+
+
         return currentByte;															// Return the encoded byte.
     }
 

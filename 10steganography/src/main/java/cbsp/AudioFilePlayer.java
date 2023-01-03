@@ -18,26 +18,19 @@ public class AudioFilePlayer {
         try {
             // Get AudioInputStream from AudioSystem.
             ais = AudioSystem.getAudioInputStream(file);
+            // Get DataLine.Info.
             DataLine.Info dInfo = new DataLine.Info(Clip.class, ais.getFormat());
+            // Get current Clip Object and open it.
             clip = (Clip) AudioSystem.getLine(dInfo);
             clip.open(ais);
+            // Start the playing of the Clip object.
             clip.start();
+            // Wait for the end of the recording.
             Thread.sleep(3000);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-    	
-
-    	
-    	// Get DataLine.Info.
-    	
-    	// Get current Clip Object and open it.
-    	
-    	// Start the playing of the Clip object.
-    	
-    	// Wait for the end of the recording.
-        
     }
     
     public static void main(String[] args) throws InterruptedException {

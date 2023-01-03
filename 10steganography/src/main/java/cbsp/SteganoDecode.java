@@ -1,6 +1,7 @@
 package cbsp;
 
 import java.nio.ByteBuffer;
+import java.util.BitSet;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioFormat.Encoding;
 import javax.sound.sampled.AudioInputStream;
@@ -62,15 +63,29 @@ public class SteganoDecode {
             throw new Exception("EOF");
         
         // TASK 5
-        
         // Read the current byte and extract the secret bit from LSB and store it.
-        
         // Use bit shifting or BitSet objects.
+        BitSet bitset = new BitSet(8);
+        for (int i=0; i<8; i++)
+        {
+            if ((currentByte & (1 << i)) > 0)
+            {
+                bitset.set(i);
+            }
+        }
+        boolean secretBit = bitset.get(7);
+        if(secretBit){
+            bitBuffer |= 1 << cnt%8;
+        }else{
+            bitBuffer &= ~(1 << cnt%8);
+        }
+        cnt = cnt+1;
+        DECODED_SECRET_BITSIZE+=1;
         
         if(this.cnt !=0 && this.cnt % Byte.SIZE == 0)								// We return only bytes, if bit count == n*8.
             return this.bitBuffer;
         else
             throw new Exception("BYTE NOT FULL");
-        
+
     }
 }
